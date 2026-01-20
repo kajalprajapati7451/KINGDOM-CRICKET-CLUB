@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Cricket Club | Complete Cricket Club Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="club-main-nav">
+        <div class="club-nav-container">
+            <a href="index.html" class="club-nav-logo">
+                <span class="club-logo-text">KINGDOM</span>
+                <span class="club-logo-subtext">CRICKET CLUB</span>
+            </a>
+            
+            <div class="club-nav-menu">
+                <ul class="club-nav-list">
+                    <li><a href="index.html" class="club-nav-link active">Home</a></li>
+                    <li><a href="about.html" class="club-nav-link">About</a></li>
+                    <li><a href="contact.html" class="club-nav-link">Contact</a></li>
+                    <li><a href="articles.html" class="club-nav-link">Article</a></li>
+                    <li><a href="players.html" class="club-nav-link">Players</a></li>
+                    <li><a href="gallery.html" class="club-nav-link">Gallery</a></li>
+                </ul>
+                
+                <div class="club-nav-hamburger">
+                    <span class="club-hamburger-bar"></span>
+                    <span class="club-hamburger-bar"></span>
+                    <span class="club-hamburger-bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner with Slider -->
+    <section class="club-hero-section">
+        <div class="club-hero-slider">
+            <div class="club-slide club-slide-active">
+                <div class="club-slide-overlay"></div>
+                <div class="club-slide-content">
+                    <h1 class="club-slide-title">Kingdom Cricket Club Excellence</h1>
+                    <p class="club-slide-description">Where talent meets opportunity and champions are made</p>
+                    <div class="club-slide-buttons">
+                        <a href="about.html" class="club-btn club-btn-primary">Explore Club</a>
+                        <a href="players.html" class="club-btn club-btn-outline">Meet Players</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-slide">
+                <div class="club-slide-overlay"></div>
+                <div class="club-slide-content">
+                    <h1 class="club-slide-title">2023 Championship Winners</h1>
+                    <p class="club-slide-description">Celebrating our victory in the Premier Cricket League tournament</p>
+                    <div class="club-slide-buttons">
+                        <a href="tournaments.html" class="club-btn club-btn-primary">View Trophy</a>
+                        <a href="gallery.html" class="club-btn club-btn-outline">Match Photos</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-slide">
+                <div class="club-slide-overlay"></div>
+                <div class="club-slide-content">
+                    <h1 class="club-slide-title">Professional Coaching Sessions</h1>
+                    <p class="club-slide-description">Join our training programs for all age groups and skill levels</p>
+                    <div class="club-slide-buttons">
+                        <a href="contact.html" class="club-btn club-btn-primary">Register Now</a>
+                        <a href="articles.html" class="club-btn club-btn-outline">Latest News</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-slider-controls">
+                <button class="club-slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="club-slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="club-slider-indicators">
+                <span class="club-indicator club-indicator-active"></span>
+                <span class="club-indicator"></span>
+                <span class="club-indicator"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Player View Section -->
+    <section class="club-player-view-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Player View</h2>
+                <p class="club-section-subtitle">Meet our talented squad of professional cricketers</p>
+            </div>
+            
+            <!-- Player View Grid -->
+            <div class="club-player-view-grid">
+                <div class="club-player-view-card">
+                    <div class="club-player-view-image">
+                        <img src="images/10.jfif" alt="Alex Turner">
+                        <div class="club-player-view-overlay">
+                            <a href="player-details.html" class="club-player-view-btn">View Profile</a>
+                        </div>
+                    </div>
+                    <div class="club-player-view-info">
+                        <h3 class="club-player-view-name">Alex Turner</h3>
+                        <p class="club-player-view-role">Opening Batsman</p>
+                        <div class="club-player-view-stats">
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Matches</span>
+                                <span class="club-player-view-stat-value">84</span>
+                            </div>
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Runs</span>
+                                <span class="club-player-view-stat-value">3,245</span>
+                            </div>
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Avg</span>
+                                <span class="club-player-view-stat-value">42.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-player-view-card">
+                    <div class="club-player-view-image">
+                        <img src="images/11.jfif" alt="James Anderson">
+                        <div class="club-player-view-overlay">
+                            <a href="player-details.html" class="club-player-view-btn">View Profile</a>
+                        </div>
+                    </div>
+                    <div class="club-player-view-info">
+                        <h3 class="club-player-view-name">James Anderson</h3>
+                        <p class="club-player-view-role">Fast Bowler</p>
+                        <div class="club-player-view-stats">
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Matches</span>
+                                <span class="club-player-view-stat-value">92</span>
+                            </div>
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Wickets</span>
+                                <span class="club-player-view-stat-value">127</span>
+                            </div>
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Economy</span>
+                                <span class="club-player-view-stat-value">4.2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-player-view-card">
+                    <div class="club-player-view-image">
+                        <img src="images/12.jfif" alt="David Miller">
+                        <div class="club-player-view-overlay">
+                            <a href="player-details.html" class="club-player-view-btn">View Profile</a>
+                        </div>
+                    </div>
+                    <div class="club-player-view-info">
+                        <h3 class="club-player-view-name">David Miller</h3>
+                        <p class="club-player-view-role">All-Rounder</p>
+                        <div class="club-player-view-stats">
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Matches</span>
+                                <span class="club-player-view-stat-value">78</span>
+                            </div>
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Runs</span>
+                                <span class="club-player-view-stat-value">2,745</span>
+                            </div>
+                            <div class="club-player-view-stat">
+                                <span class="club-player-view-stat-label">Wickets</span>
+                                <span class="club-player-view-stat-value">43</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-section-footer">
+                <a href="players.html" class="club-btn club-btn-primary">View All Players</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slider Player View Section -->
+    <section class="club-slider-player-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Slider Player View</h2>
+                <p class="club-section-subtitle">Swipe through our complete player roster</p>
+            </div>
+            
+            <div class="club-slider-player-container">
+                <div class="club-slider-player-wrapper">
+                    <div class="club-slider-player-track">
+                        <!-- Player slides will be added dynamically via JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="club-slider-player-controls">
+                    <button class="club-slider-player-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="club-slider-player-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="club-slider-player-indicators">
+                    <!-- Indicators will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Performance Section -->
+    <section class="club-performance-options-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Kingdom Cricket Club Best Performance</h2>
+                <p class="club-section-subtitle">Top performers and match highlights from the season</p>
+            </div>
+            
+            <div class="club-performance-options-grid">
+                <div class="club-performance-option-card">
+                    <div class="club-performance-option-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="club-performance-option-title">MAN OF THE MATCH</h3>
+                    <div class="club-performance-option-player">
+                        <div class="club-performance-option-player-image">
+                            <img src="images/4.jfif" alt="Alex Turner">
+                        </div>
+                        <div class="club-performance-option-player-info">
+                            <h4>Alex Turner</h4>
+                            <p>82 runs, 3 catches</p>
+                            <span class="club-performance-option-date">May 15, 2023</span>
+                        </div>
+                    </div>
+                    <p class="club-performance-option-description">Outstanding performance against Lions CC with a match-winning innings</p>
+                </div>
+                
+                <div class="club-performance-option-card">
+                    <div class="club-performance-option-icon">
+                        <i class="fas fa-baseball-bat-ball"></i>
+                    </div>
+                    <h3 class="club-performance-option-title">BEST BATSMAN</h3>
+                    <div class="club-performance-option-player">
+                        <div class="club-performance-option-player-image">
+                            <img src="images/12.jfif" alt="David Miller">
+                        </div>
+                        <div class="club-performance-option-player-info">
+                            <h4>David Miller</h4>
+                            <p>Season Avg: 47.8</p>
+                            <span class="club-performance-option-date">2023 Season</span>
+                        </div>
+                    </div>
+                    <p class="club-performance-option-description">Consistent performance throughout the season with 4 centuries</p>
+                </div>
+                
+                <div class="club-performance-option-card">
+                    <div class="club-performance-option-icon">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                    <h3 class="club-performance-option-title">BEST BOWLER</h3>
+                    <div class="club-performance-option-player">
+                        <div class="club-performance-option-player-image">
+                            <img src="images/9.jfif" alt="James Anderson">
+                        </div>
+                        <div class="club-performance-option-player-info">
+                            <h4>James Anderson</h4>
+                            <p>27 wickets in 10 matches</p>
+                            <span class="club-performance-option-date">2023 Season</span>
+                        </div>
+                    </div>
+                    <p class="club-performance-option-description">Leading wicket-taker with best economy rate of 4.2</p>
+                </div>
+                
+                <div class="club-performance-option-card">
+                    <div class="club-performance-option-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="club-performance-option-title">BEST FIELDER</h3>
+                    <div class="club-performance-option-player">
+                        <div class="club-performance-option-player-image">
+                            <img src="images/13.jfif" alt="Steve Smith">
+                        </div>
+                        <div class="club-performance-option-player-info">
+                            <h4>Steve Smith</h4>
+                            <p>15 catches, 3 run-outs</p>
+                            <span class="club-performance-option-date">2023 Season</span>
+                        </div>
+                    </div>
+                    <p class="club-performance-option-description">Exceptional fielding with game-changing catches</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Date Wise Flicker Section -->
+    <section class="club-date-flicker-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Date Wise Match Flicker</h2>
+                <p class="club-section-subtitle">Browse match highlights by date</p>
+            </div>
+            
+            <div class="club-date-flicker-container">
+                <div class="club-date-flicker-header">
+                    <div class="club-date-flicker-month">
+                        <button class="club-date-flicker-prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h3 class="club-date-flicker-current-month">June 2023</h3>
+                        <button class="club-date-flicker-next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="club-date-flicker-calendar">
+                    <!-- Calendar will be populated via JavaScript -->
+                </div>
+                
+                <div class="club-date-flicker-matches">
+                    <h3 class="club-date-flicker-match-title">Matches on <span class="club-date-flicker-selected-date">June 12, 2023</span></h3>
+                    
+                    <div class="club-date-flicker-match-list">
+                        <div class="club-date-flicker-match-item">
+                            <div class="club-date-flicker-match-teams">
+                                <div class="club-date-flicker-match-team">
+                                    <div class="club-date-flicker-team-logo">KCC</div>
+                                    <div class="club-date-flicker-team-name">Kingdom CC</div>
+                                </div>
+                                <div class="club-date-flicker-match-vs">VS</div>
+                                <div class="club-date-flicker-match-team">
+                                    <div class="club-date-flicker-team-logo">LCC</div>
+                                    <div class="club-date-flicker-team-name">Lions CC</div>
+                                </div>
+                            </div>
+                            <div class="club-date-flicker-match-result">
+                                <div class="club-date-flicker-match-score">245/6 - 192/9</div>
+                                <div class="club-date-flicker-match-winner">Kingdom CC won by 53 runs</div>
+                            </div>
+                            <div class="club-date-flicker-match-highlight">
+                                <i class="fas fa-star"></i> Alex Turner: 82 runs, 3 catches
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Matches Section -->
+    <section class="club-recent-fric-matches">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Recent Five Matches</h2>
+                <p class="club-section-subtitle">Latest match results and performances</p>
+            </div>
+            
+            <div class="club-recent-matches-grid">
+                <div class="club-recent-match-card">
+                    <div class="club-recent-match-header">
+                        <div class="club-recent-match-date">Jun 12, 2023</div>
+                        <div class="club-recent-match-result club-recent-match-win">Won</div>
+                    </div>
+                    <div class="club-recent-match-teams">
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Kingdom CC</div>
+                            <div class="club-recent-match-team-score">245/6</div>
+                        </div>
+                        <div class="club-recent-match-vs">VS</div>
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Lions CC</div>
+                            <div class="club-recent-match-team-score">192/9</div>
+                        </div>
+                    </div>
+                    <div class="club-recent-match-highlight">
+                        <i class="fas fa-crown"></i> Alex Turner: 82 runs
+                    </div>
+                    <div class="club-recent-match-view">
+                        <a href="match-details.html" class="club-recent-match-link">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="club-recent-match-card">
+                    <div class="club-recent-match-header">
+                        <div class="club-recent-match-date">Jun 5, 2023</div>
+                        <div class="club-recent-match-result club-recent-match-loss">Lost</div>
+                    </div>
+                    <div class="club-recent-match-teams">
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Kingdom CC</div>
+                            <div class="club-recent-match-team-score">187/10</div>
+                        </div>
+                        <div class="club-recent-match-vs">VS</div>
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Tigers United</div>
+                            <div class="club-recent-match-team-score">189/5</div>
+                        </div>
+                    </div>
+                    <div class="club-recent-match-highlight">
+                        <i class="fas fa-baseball-ball"></i> James Anderson: 3 wickets
+                    </div>
+                    <div class="club-recent-match-view">
+                        <a href="match-details.html" class="club-recent-match-link">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="club-recent-match-card">
+                    <div class="club-recent-match-header">
+                        <div class="club-recent-match-date">May 29, 2023</div>
+                        <div class="club-recent-match-result club-recent-match-win">Won</div>
+                    </div>
+                    <div class="club-recent-match-teams">
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Kingdom CC</div>
+                            <div class="club-recent-match-team-score">312/8</div>
+                        </div>
+                        <div class="club-recent-match-vs">VS</div>
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Eagles CC</div>
+                            <div class="club-recent-match-team-score">265/10</div>
+                        </div>
+                    </div>
+                    <div class="club-recent-match-highlight">
+                        <i class="fas fa-baseball-bat-ball"></i> David Miller: 104 runs
+                    </div>
+                    <div class="club-recent-match-view">
+                        <a href="match-details.html" class="club-recent-match-link">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="club-recent-match-card">
+                    <div class="club-recent-match-header">
+                        <div class="club-recent-match-date">May 22, 2023</div>
+                        <div class="club-recent-match-result club-recent-match-win">Won</div>
+                    </div>
+                    <div class="club-recent-match-teams">
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Kingdom CC</div>
+                            <div class="club-recent-match-team-score">278/7</div>
+                        </div>
+                        <div class="club-recent-match-vs">VS</div>
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Panthers XI</div>
+                            <div class="club-recent-match-team-score">275/9</div>
+                        </div>
+                    </div>
+                    <div class="club-recent-match-highlight">
+                        <i class="fas fa-user-shield"></i> Steve Smith: 5 catches
+                    </div>
+                    <div class="club-recent-match-view">
+                        <a href="match-details.html" class="club-recent-match-link">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="club-recent-match-card">
+                    <div class="club-recent-match-header">
+                        <div class="club-recent-match-date">May 15, 2023</div>
+                        <div class="club-recent-match-result club-recent-match-draw">Draw</div>
+                    </div>
+                    <div class="club-recent-match-teams">
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Kingdom CC</div>
+                            <div class="club-recent-match-team-score">255/10</div>
+                        </div>
+                        <div class="club-recent-match-vs">VS</div>
+                        <div class="club-recent-match-team">
+                            <div class="club-recent-match-team-name">Rhinos CC</div>
+                            <div class="club-recent-match-team-score">255/10</div>
+                        </div>
+                    </div>
+                    <div class="club-recent-match-highlight">
+                        <i class="fas fa-equals"></i> Match tied
+                    </div>
+                    <div class="club-recent-match-view">
+                        <a href="match-details.html" class="club-recent-match-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-section-footer">
+                <a href="matches.html" class="club-btn club-btn-outline">View All Matches</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Gallery Section -->
+    <section class="club-gallery-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Gallery</h2>
+                <p class="club-section-subtitle">Capturing memorable moments from matches and events</p>
+            </div>
+            
+            <div class="club-gallery-tabs">
+                <button class="club-gallery-tab active" data-tab="photos">Photos</button>
+                <button class="club-gallery-tab" data-tab="videos">Videos</button>
+            </div>
+            
+            <!-- Photos Gallery -->
+            <div class="club-gallery-content club-gallery-photos active">
+                <div class="club-gallery-grid">
+                    <a href="images/10.jfif" 
+                       data-lightbox="gallery" class="club-gallery-item">
+                        <img src="images/4.jfif" alt="Match Action">
+                        <div class="club-gallery-overlay">
+                            <i class="fas fa-search"></i>
+                            <span>Match Action</span>
+                        </div>
+                    </a>
+                    
+                    <a href="images/12.jfif" 
+                       data-lightbox="gallery" class="club-gallery-item">
+                        <img src="images/12.jfif" alt="Team Celebration">
+                        <div class="club-gallery-overlay">
+                            <i class="fas fa-search"></i>
+                            <span>Team Celebration</span>
+                        </div>
+                    </a>
+                    
+                    <a href="images/13.jfif" 
+                       data-lightbox="gallery" class="club-gallery-item">
+                        <img src="images/9.jfif" alt="Training Session">
+                        <div class="club-gallery-overlay">
+                            <i class="fas fa-search"></i>
+                            <span>Training Session</span>
+                        </div>
+                    </a>
+                    
+                    <a href="images/13.jfif" 
+                       data-lightbox="gallery" class="club-gallery-item">
+                        <img src="images/13.jfif" alt="Team Photo">
+                        <div class="club-gallery-overlay">
+                            <i class="fas fa-search"></i>
+                            <span>Team Photo</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="club-section-footer">
+                    <a href="gallery.html" class="club-btn club-btn-primary">View More Photos</a>
+                </div>
+            </div>
+            
+            <!-- Videos Gallery -->
+            <div class="club-gallery-content club-gallery-videos">
+                <div class="club-video-grid">
+                    <div class="club-video-item">
+                        <div class="club-video-thumbnail">
+                            <img src="images/6.jfif" alt="Match Highlights">
+                            <div class="club-video-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="club-video-info">
+                            <h3 class="club-video-title">Match Highlights: Kingdom CC vs Lions CC</h3>
+                            <p class="club-video-description">Full match highlights from our victory against Lions CC</p>
+                            <span class="club-video-duration">12:45 min</span>
+                        </div>
+                    </div>
+                    
+                    <div class="club-video-item">
+                        <div class="club-video-thumbnail">
+                            <img src="images/4.jfif" alt="Training Session">
+                            <div class="club-video-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="club-video-info">
+                            <h3 class="club-video-title">Advanced Batting Techniques</h3>
+                            <p class="club-video-description">Coaching session with our batting coach</p>
+                            <span class="club-video-duration">8:20 min</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-section-footer">
+                    <a href="gallery.html?tab=videos" class="club-btn club-btn-primary">View More Videos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Best Shot Video Section -->
+    <section class="club-best-shot-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Best Shot Videos</h2>
+                <p class="club-section-subtitle">Watch the most spectacular shots from our batsmen</p>
+            </div>
+            
+            <div class="club-best-shot-grid">
+                <div class="club-best-shot-card">
+                    <div class="club-best-shot-video">
+                        <div class="club-best-shot-thumbnail">
+                            <img src="images/12.jfif" alt="Six Over Cover">
+                            <div class="club-best-shot-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="club-best-shot-info">
+                        <h3 class="club-best-shot-title">Massive Six Over Cover</h3>
+                        <p class="club-best-shot-player">David Miller</p>
+                        <p class="club-best-shot-details">Match: Kingdom CC vs Eagles CC | Distance: 98 meters</p>
+                        <div class="club-best-shot-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-best-shot-card">
+                    <div class="club-best-shot-video">
+                        <div class="club-best-shot-thumbnail">
+                            <img src="images/13.jfif" alt="Perfect Straight Drive">
+                            <div class="club-best-shot-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="club-best-shot-info">
+                        <h3 class="club-best-shot-title">Perfect Straight Drive</h3>
+                        <p class="club-best-shot-player">Alex Turner</p>
+                        <p class="club-best-shot-details">Match: Kingdom CC vs Lions CC | Timing: Perfect</p>
+                        <div class="club-best-shot-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Draft Catch Video Section -->
+    <section class="club-draft-catch-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Draft Catch Videos</h2>
+                <p class="club-section-subtitle">Incredible catches that changed the course of matches</p>
+            </div>
+            
+            <div class="club-draft-catch-grid">
+                <div class="club-draft-catch-card">
+                    <div class="club-draft-catch-video">
+                        <div class="club-draft-catch-thumbnail">
+                            <img src="images/13.jfif" alt="One-Handed Catch">
+                            <div class="club-draft-catch-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="club-draft-catch-tag">Match-Winning</div>
+                        </div>
+                    </div>
+                    <div class="club-draft-catch-info">
+                        <h3 class="club-draft-catch-title">One-Handed Blinder at Slips</h3>
+                        <p class="club-draft-catch-player">Steve Smith</p>
+                        <p class="club-draft-catch-details">Match: Kingdom CC vs Panthers XI | Difficulty: Extreme</p>
+                        <div class="club-draft-catch-stats">
+                            <div class="club-draft-catch-stat">
+                                <span class="club-draft-catch-stat-label">Reaction Time</span>
+                                <span class="club-draft-catch-stat-value">0.18s</span>
+                            </div>
+                            <div class="club-draft-catch-stat">
+                                <span class="club-draft-catch-stat-label">Success Rate</span>
+                                <span class="club-draft-catch-stat-value">98%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-draft-catch-card">
+                    <div class="club-draft-catch-video">
+                        <div class="club-draft-catch-thumbnail">
+                            <img src="images/12.jfif" alt="Running Catch">
+                            <div class="club-draft-catch-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="club-draft-catch-tag">Spectacular</div>
+                        </div>
+                    </div>
+                    <div class="club-draft-catch-info">
+                        <h3 class="club-draft-catch-title">Running Backward Catch at Boundary</h3>
+                        <p class="club-draft-catch-player">James Anderson</p>
+                        <p class="club-draft-catch-details">Match: Kingdom CC vs Tigers United | Distance: 25 meters</p>
+                        <div class="club-draft-catch-stats">
+                            <div class="club-draft-catch-stat">
+                                <span class="club-draft-catch-stat-label">Running Distance</span>
+                                <span class="club-draft-catch-stat-value">18m</span>
+                            </div>
+                            <div class="club-draft-catch-stat">
+                                <span class="club-draft-catch-stat-label">Jump Height</span>
+                                <span class="club-draft-catch-stat-value">1.2m</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Best Bowling Video Section -->
+    <section class="club-best-bowling-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Best Bowling Videos</h3>
+                <p class="club-section-subtitle">Unplayable deliveries and perfect bowling spells</p>
+            </div>
+            
+            <div class="club-best-bowling-grid">
+                <div class="club-best-bowling-card">
+                    <div class="club-best-bowling-video">
+                        <div class="club-best-bowling-thumbnail">
+                            <img src="images/12.jfif" alt="Perfect Yorker">
+                            <div class="club-best-bowling-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="club-best-bowling-tag">Unplayable</div>
+                        </div>
+                    </div>
+                    <div class="club-best-bowling-info">
+                        <h3 class="club-best-bowling-title">Perfect Toe-Crushing Yorker</h3>
+                        <p class="club-best-bowling-player">James Anderson</p>
+                        <p class="club-best-bowling-details">Match: Kingdom CC vs Lions CC | Speed: 145 km/h</p>
+                        <div class="club-best-bowling-stats">
+                            <div class="club-best-bowling-stat">
+                                <span class="club-best-bowling-stat-label">Speed</span>
+                                <span class="club-best-bowling-stat-value">145 km/h</span>
+                            </div>
+                            <div class="club-best-bowling-stat">
+                                <span class="club-best-bowling-stat-label">Swing</span>
+                                <span class="club-best-bowling-stat-value">Late Inswing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-best-bowling-card">
+                    <div class="club-best-bowling-video">
+                        <div class="club-best-bowling-thumbnail">
+                            <img src="images/12.jfif" alt="Turning Delivery">
+                            <div class="club-best-bowling-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="club-best-bowling-tag">Turning Sharply</div>
+                        </div>
+                    </div>
+                    <div class="club-best-bowling-info">
+                        <h3 class="club-best-bowling-title">Sharp Turning Off-Spinner</h3>
+                        <p class="club-best-bowling-player">David Miller</p>
+                        <p class="club-best-bowling-details">Match: Kingdom CC vs Eagles CC | Turn: 8.5°</p>
+                        <div class="club-best-bowling-stats">
+                            <div class="club-best-bowling-stat">
+                                <span class="club-best-bowling-stat-label">Turn Angle</span>
+                                <span class="club-best-bowling-stat-value">8.5°</span>
+                            </div>
+                            <div class="club-best-bowling-stat">
+                                <span class="club-best-bowling-stat-label">Bounce</span>
+                                <span class="club-best-bowling-stat-value">Extra</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="club-footer">
+        <div class="club-footer-container">
+            
+            <div class="club-footer-bottom">
+                <p class="club-copyright">This website is meant only for information purposes. It should not be considered/ claimed as an official site. This website belongs to authorized channel partner.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="club-back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Light/Dark Theme Toggle -->
+    <button class="club-theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Lightbox for Gallery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
