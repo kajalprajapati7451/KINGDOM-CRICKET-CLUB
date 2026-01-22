@@ -2640,3 +2640,1028 @@ body.dark-theme .club-best-bowling-stats {
         font-size: 0.8rem;
     }
 }
+/* About Page Specific CSS */
+
+/* 1. About Hero Section */
+.club-about-hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.8)), 
+                url('images/10.jfif');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0 40px;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    margin-top: 80px; /* Account for fixed navbar */
+}
+
+.club-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.club-about-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.club-about-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.club-about-hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.club-about-hero-breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.club-about-hero-breadcrumb a {
+    color: #f0b90b;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.club-about-hero-breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.club-about-hero-breadcrumb span {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 5px;
+}
+
+.club-about-hero-breadcrumb i {
+    font-size: 0.7rem;
+    margin: 0 5px;
+}
+
+/* 2. Our Journey Section - Fixed Timeline */
+.club-history-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+}
+
+.club-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.club-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: #1a365d;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.club-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #f0b90b, #1a365d);
+    border-radius: 2px;
+}
+
+.club-section-subtitle {
+    color: #666;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+}
+
+/* Timeline Styles - Fixed Version */
+.club-history-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 50px auto 0;
+    padding: 20px 0;
+}
+
+/* Timeline Vertical Line */
+.club-history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: calc(100% - 40px);
+    background: linear-gradient(to bottom, #f0b90b 0%, #1a365d 100%);
+    border-radius: 2px;
+    top: 20px;
+}
+
+/* Timeline Items */
+.club-history-item {
+    display: flex;
+    margin-bottom: 60px;
+    position: relative;
+    width: 100%;
+}
+
+/* Even items on right side */
+.club-history-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+/* Year Circle */
+.club-history-year {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #f0b90b, #1a365d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    z-index: 2;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    top: -35px;
+}
+
+/* Content Box */
+.club-history-content {
+    width: 45%;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-left: 4px solid #f0b90b;
+}
+
+/* Left side items */
+.club-history-item:nth-child(odd) .club-history-content {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: right;
+    border-left: none;
+    border-right: 4px solid #f0b90b;
+}
+
+/* Right side items */
+.club-history-item:nth-child(even) .club-history-content {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* Connector Lines */
+.club-history-content::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #f0b90b;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #f0b90b;
+}
+
+/* Left side connector */
+.club-history-item:nth-child(odd) .club-history-content::before {
+    right: -40px;
+}
+
+/* Right side connector */
+.club-history-item:nth-child(even) .club-history-content::before {
+    left: -40px;
+}
+
+/* Title and Description */
+.club-history-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: #1a365d;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.club-history-description {
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* 3. Mission & Vision Section */
+.club-mission-vision-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.club-mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.club-mission-card,
+.club-vision-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+    position: relative;
+    overflow: hidden;
+}
+
+.club-mission-card::before,
+.club-vision-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #f0b90b, #1a365d);
+}
+
+.club-mission-card:hover,
+.club-vision-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.club-mission-icon,
+.club-vision-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #f0b90b, #1a365d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: white;
+    font-size: 1.8rem;
+    box-shadow: 0 8px 20px rgba(240, 185, 11, 0.3);
+}
+
+.club-mission-title,
+.club-vision-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.club-mission-description,
+.club-vision-description {
+    color: #666;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* 4. Coaching Section */
+.club-coaching-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+}
+
+.club-coaching-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.club-coach-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+}
+
+.club-coach-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.club-coach-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.club-coach-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.club-coach-card:hover .club-coach-image img {
+    transform: scale(1.1);
+}
+
+.club-coach-info {
+    padding: 25px;
+}
+
+.club-coach-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: #1a365d;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.club-coach-role {
+    color: #f0b90b;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.club-coach-qualification,
+.club-coach-experience {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.club-coach-specialty {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.club-coach-specialty span {
+    font-weight: 600;
+    color: #1a365d;
+}
+
+/* 5. Facilities Section */
+.club-facilities-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.club-facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.club-facility-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+    position: relative;
+    overflow: hidden;
+}
+
+.club-facility-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.club-facility-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #1a365d, #f0b90b);
+}
+
+.club-facility-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1a365d, #f0b90b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
+}
+
+.club-facility-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #1a365d;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.club-facility-description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.club-facility-features {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+.club-facility-features li {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.club-facility-features i {
+    color: #f0b90b;
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+/* 6. Achievements Section */
+.club-achievements-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+}
+
+.club-achievements-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin: 50px 0;
+}
+
+.club-achievement-stat {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #1a365d, #2a4a7a);
+    border-radius: 12px;
+    color: white;
+    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.club-achievement-stat:hover {
+    transform: translateY(-5px);
+    border-color: #f0b90b;
+}
+
+.club-achievement-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #f0b90b;
+}
+
+.club-achievement-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.club-trophies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.club-trophy-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.club-trophy-card:hover {
+    border-color: #f0b90b;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.club-trophy-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f0b90b, #1a365d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(240, 185, 11, 0.3);
+}
+
+.club-trophy-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #1a365d;
+    margin-bottom: 8px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.club-trophy-year {
+    color: #f0b90b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* 7. Testimonials Section */
+.club-testimonials-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.club-testimonials-slider {
+    max-width: 800px;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+.club-testimonial-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: none;
+    border: 1px solid #eaeaea;
+}
+
+.club-testimonial-card.club-testimonial-active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.club-testimonial-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-style: italic;
+    position: relative;
+    padding-left: 25px;
+}
+
+.club-testimonial-text::before {
+    content: '"';
+    font-size: 3rem;
+    color: #f0b90b;
+    position: absolute;
+    left: 0;
+    top: -15px;
+    opacity: 0.3;
+    font-family: serif;
+}
+
+.club-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.club-testimonial-author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f0b90b;
+    flex-shrink: 0;
+}
+
+.club-testimonial-author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.club-testimonial-author-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #1a365d;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.club-testimonial-author-info p {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.club-testimonial-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.club-testimonial-prev,
+.club-testimonial-next {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #1a365d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.club-testimonial-prev:hover,
+.club-testimonial-next:hover {
+    background: #f0b90b;
+    transform: scale(1.1);
+}
+
+.club-testimonial-indicators {
+    display: flex;
+    gap: 8px;
+}
+
+.club-testimonial-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.club-testimonial-indicator.club-testimonial-active {
+    background: #f0b90b;
+    transform: scale(1.2);
+}
+
+/* 8. Join CTA Section */
+.club-join-cta-section {
+    background: linear-gradient(135deg, #1a365d 0%, #2d4a7a 100%);
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.club-join-cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(240, 185, 11, 0.1) 0%, transparent 70%);
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.club-join-cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.club-join-cta-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.club-join-cta-description {
+    font-size: 1rem;
+    margin-bottom: 35px;
+    opacity: 0.9;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.club-join-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.club-join-cta-buttons .club-btn-primary {
+    background: #f0b90b;
+    color: #1a365d;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: 2px solid #f0b90b;
+    transition: all 0.3s ease;
+}
+
+.club-join-cta-buttons .club-btn-primary:hover {
+    background: transparent;
+    color: #f0b90b;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(240, 185, 11, 0.3);
+}
+
+.club-join-cta-buttons .club-btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.club-join-cta-buttons .club-btn-outline:hover {
+    background: white;
+    color: #1a365d;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Styles for About Page */
+@media (max-width: 992px) {
+    .club-about-hero {
+        min-height: 250px;
+        padding: 70px 0 35px;
+    }
+    
+    .club-about-hero-title {
+        font-size: 2rem;
+    }
+    
+    .club-mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Timeline Adjustments for Tablet */
+    .club-history-timeline::before {
+        left: 30px;
+    }
+    
+    .club-history-item {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        margin-bottom: 80px;
+    }
+    
+    .club-history-year {
+        left: 30px;
+        top: -35px;
+        transform: translateX(0);
+    }
+    
+    .club-history-content {
+        width: calc(100% - 100px);
+        margin-left: 100px !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+        border-left: 4px solid #f0b90b !important;
+        border-right: none !important;
+    }
+    
+    .club-history-item:nth-child(odd) .club-history-content::before,
+    .club-history-item:nth-child(even) .club-history-content::before {
+        left: -40px;
+        right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .club-about-hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .club-about-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .club-section-title {
+        font-size: 1.8rem;
+    }
+    
+    .club-coaching-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .club-facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .club-trophies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .club-achievements-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .club-join-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .club-join-cta-buttons .club-btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .club-about-hero {
+        min-height: 220px;
+        padding: 60px 0 30px;
+    }
+    
+    .club-about-hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .club-about-hero-breadcrumb {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+    }
+    
+    .club-facilities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .club-trophies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .club-achievements-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .club-testimonial-card {
+        padding: 25px;
+    }
+    
+    .club-testimonial-text {
+        font-size: 0.95rem;
+        padding-left: 20px;
+    }
+    
+    .club-testimonial-text::before {
+        font-size: 2.5rem;
+        top: -10px;
+    }
+    
+    /* Timeline Adjustments for Mobile */
+    .club-history-year {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+        left: 20px;
+    }
+    
+    .club-history-content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+        padding: 20px;
+    }
+    
+    .club-history-title {
+        font-size: 1.2rem;
+    }
+    
+    .club-history-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Theme Support */
+.dark-theme .club-about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), 
+                url('images/10.jfif');
+}
+
+.dark-theme .club-history-section,
+.dark-theme .club-mission-vision-section,
+.dark-theme .club-facilities-section,
+.dark-theme .club-testimonials-section {
+    background: #1a1a1a;
+}
+
+.dark-theme .club-coaching-section,
+.dark-theme .club-achievements-section {
+    background: linear-gradient(to bottom, #222222 0%, #1a1a1a 100%);
+}
+
+.dark-theme .club-section-title,
+.dark-theme .club-history-title,
+.dark-theme .club-coach-name,
+.dark-theme .club-facility-title,
+.dark-theme .club-trophy-title {
+    color: #ffffff;
+}
+
+.dark-theme .club-section-subtitle,
+.dark-theme .club-history-description,
+.dark-theme .club-mission-description,
+.dark-theme .club-vision-description,
+.dark-theme .club-coach-qualification,
+.dark-theme .club-coach-experience,
+.dark-theme .club-facility-description,
+.dark-theme .club-facility-features li,
+.dark-theme .club-testimonial-author-info p,
+.dark-theme .club-testimonial-text {
+    color: #cccccc;
+}
+
+.dark-theme .club-history-content,
+.dark-theme .club-mission-card,
+.dark-theme .club-vision-card,
+.dark-theme .club-coach-card,
+.dark-theme .club-facility-card,
+.dark-theme .club-trophy-card,
+.dark-theme .club-testimonial-card {
+    background: #222222;
+    border-color: #333333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .club-achievement-stat {
+    background: linear-gradient(135deg, #333333, #444444);
+    border-color: #f0b90b;
+}

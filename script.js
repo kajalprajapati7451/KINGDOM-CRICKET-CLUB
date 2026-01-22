@@ -1,314 +1,315 @@
-// script.js - Updated with all new sections functionality
-
+// Kingdom Cricket Club - Complete JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Kingdom Cricket Club - Website Loaded');
     
-    // ===== Mobile Navigation Toggle =====
-    const navHamburger = document.querySelector('.club-nav-hamburger');
+    // ==================== 1. MOBILE NAVIGATION ====================
+    const hamburger = document.querySelector('.club-nav-hamburger');
     const navList = document.querySelector('.club-nav-list');
+    const navLinks = document.querySelectorAll('.club-nav-link');
     
-    if (navHamburger) {
-        navHamburger.addEventListener('click', function() {
+    if (hamburger && navList) {
+        // Toggle mobile menu
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             this.classList.toggle('active');
             navList.classList.toggle('active');
+            
+            // Toggle body scroll
+            if (navList.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking on a nav link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navList.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navList.classList.contains('active') && 
+                !navList.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navList.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navList.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     }
     
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.club-nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navHamburger.classList.remove('active');
-            navList.classList.remove('active');
-        });
-    });
-    
-    // ===== Hero Slider Functionality =====
+    // ==================== 2. HERO SLIDER ====================
     const heroSlides = document.querySelectorAll('.club-slide');
     const heroIndicators = document.querySelectorAll('.club-indicator');
-    const prevBtn = document.querySelector('.club-slider-prev');
-    const nextBtn = document.querySelector('.club-slider-next');
-    let currentSlide = 0;
-    let slideInterval;
+    const heroPrevBtn = document.querySelector('.club-slider-prev');
+    const heroNextBtn = document.querySelector('.club-slider-next');
+    let currentHeroSlide = 0;
+    let heroSlideInterval;
     
-    function showSlide(index) {
-        // Reset all slides
-        heroSlides.forEach(slide => {
-            slide.classList.remove('club-slide-active');
+    if (heroSlides.length > 0) {
+        function showHeroSlide(index) {
+            // Reset all slides
+            heroSlides.forEach(slide => slide.classList.remove('club-slide-active'));
+            heroIndicators.forEach(indicator => indicator.classList.remove('club-indicator-active'));
+            
+            // Set current slide
+            currentHeroSlide = index;
+            if (currentHeroSlide >= heroSlides.length) currentHeroSlide = 0;
+            if (currentHeroSlide < 0) currentHeroSlide = heroSlides.length - 1;
+            
+            // Show current slide
+            heroSlides[currentHeroSlide].classList.add('club-slide-active');
+            heroIndicators[currentHeroSlide].classList.add('club-indicator-active');
+        }
+        
+        function nextHeroSlide() {
+            showHeroSlide(currentHeroSlide + 1);
+        }
+        
+        function prevHeroSlide() {
+            showHeroSlide(currentHeroSlide - 1);
+        }
+        
+        function resetHeroInterval() {
+            clearInterval(heroSlideInterval);
+            startHeroInterval();
+        }
+        
+        function startHeroInterval() {
+            heroSlideInterval = setInterval(nextHeroSlide, 5000);
+        }
+        
+        // Initialize
+        showHeroSlide(0);
+        startHeroInterval();
+        
+        // Add event listeners
+        if (heroPrevBtn) {
+            heroPrevBtn.addEventListener('click', () => {
+                prevHeroSlide();
+                resetHeroInterval();
+            });
+        }
+        
+        if (heroNextBtn) {
+            heroNextBtn.addEventListener('click', () => {
+                nextHeroSlide();
+                resetHeroInterval();
+            });
+        }
+        
+        // Indicators
+        heroIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showHeroSlide(index);
+                resetHeroInterval();
+            });
         });
         
-        heroIndicators.forEach(indicator => {
-            indicator.classList.remove('club-indicator-active');
-        });
-        
-        // Set current slide
-        currentSlide = index;
-        if (currentSlide >= heroSlides.length) currentSlide = 0;
-        if (currentSlide < 0) currentSlide = heroSlides.length - 1;
-        
-        // Show current slide
-        heroSlides[currentSlide].classList.add('club-slide-active');
-        heroIndicators[currentSlide].classList.add('club-indicator-active');
-    }
-    
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-    
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-    
-    // Initialize slider
-    function initHeroSlider() {
-        if (heroSlides.length > 0) {
-            // Start auto slide
-            slideInterval = setInterval(nextSlide, 5000);
-            
-            // Add event listeners
-            if (prevBtn) prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
-            
-            if (nextBtn) nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
-            
-            // Add event listeners to indicators
-            heroIndicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    showSlide(index);
-                    resetInterval();
-                });
-            });
-            
-            // Pause on hover
-            const heroSlider = document.querySelector('.club-hero-slider');
+        // Pause on hover
+        const heroSlider = document.querySelector('.club-hero-slider');
+        if (heroSlider) {
             heroSlider.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
+                clearInterval(heroSlideInterval);
             });
             
             heroSlider.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
+                startHeroInterval();
             });
         }
     }
     
-    function resetInterval() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-    
-    // ===== Slider Player View Functionality =====
+    // ==================== 3. PLAYER SLIDER VIEW ====================
     const sliderPlayerTrack = document.querySelector('.club-slider-player-track');
     const sliderPlayerPrevBtn = document.querySelector('.club-slider-player-prev');
     const sliderPlayerNextBtn = document.querySelector('.club-slider-player-next');
     const sliderPlayerIndicatorsContainer = document.querySelector('.club-slider-player-indicators');
-    let sliderPlayerCurrentSlide = 0;
-    let sliderPlayerSlides = [];
-    let sliderPlayerInterval;
     
-    // Create player slides data
-    const playerData = [
-        {
-            id: 1,
-            name: "Alex Turner",
-            role: "Batsman",
-            image: "images/10.jfif",
-            stats: "Avg: 42.5 | 8 Centuries"
-        },
-        {
-            id: 2,
-            name: "James Anderson",
-            role: "Bowler",
-            image: "images/6.jfif",
-            stats: "Wickets: 127 | Econ: 4.2"
-        },
-        {
-            id: 3,
-            name: "David Miller",
-            role: "All-Rounder",
-            image: "images/4.jfif",
-            stats: "Runs: 2745 | Wickets: 43"
-        },
-        {
-            id: 4,
-            name: "Steve Smith",
-            role: "Wicket-Keeper",
-            image: "images/7.jfif",
-            stats: "Catches: 67 | Stumpings: 12"
-        },
-        {
-            id: 5,
-            name: "Chris Wilson",
-            role: "Batsman",
-            image: "images/5.jfif",
-            stats: "Avg: 38.2 | 6 Centuries"
-        },
-        {
-            id: 6,
-            name: "Michael Brown",
-            role: "Bowler",
-            image: "images/6.jfif",
-            stats: "Wickets: 89 | Econ: 4.8"
-        }
-    ];
-    
-    function createPlayerSlide(player) {
-        return `
-            <div class="club-slider-player-slide">
-                <div class="club-slider-player-card">
-                    <div class="club-slider-player-image">
-                        <img src="${player.image}" alt="${player.name}">
-                    </div>
-                    <div class="club-slider-player-info">
-                        <h3 class="club-slider-player-name">${player.name}</h3>
-                        <p class="club-slider-player-role">${player.role}</p>
-                        <p class="club-slider-player-stats">${player.stats}</p>
+    if (sliderPlayerTrack) {
+        // Player data
+        const playerData = [
+            { id: 1, name: "Alex Turner", role: "Batsman", image: "images/10.jfif", stats: "Avg: 42.5 | 8 Centuries" },
+            { id: 2, name: "James Anderson", role: "Bowler", image: "images/6.jfif", stats: "Wickets: 127 | Econ: 4.2" },
+            { id: 3, name: "David Miller", role: "All-Rounder", image: "images/4.jfif", stats: "Runs: 2745 | Wickets: 43" },
+            { id: 4, name: "Steve Smith", role: "Wicket-Keeper", image: "images/7.jfif", stats: "Catches: 67 | Stumpings: 12" },
+            { id: 5, name: "Chris Wilson", role: "Batsman", image: "images/5.jfif", stats: "Avg: 38.2 | 6 Centuries" },
+            { id: 6, name: "Michael Brown", role: "Bowler", image: "images/6.jfif", stats: "Wickets: 89 | Econ: 4.8" }
+        ];
+        
+        let currentPlayerSlide = 0;
+        let playerSlides = [];
+        let playerSlideInterval;
+        
+        // Create player slide HTML
+        function createPlayerSlide(player) {
+            return `
+                <div class="club-slider-player-slide">
+                    <div class="club-slider-player-card">
+                        <div class="club-slider-player-image">
+                            <img src="${player.image}" alt="${player.name}" onerror="this.src='images/default-player.jpg'">
+                        </div>
+                        <div class="club-slider-player-info">
+                            <h3 class="club-slider-player-name">${player.name}</h3>
+                            <p class="club-slider-player-role">${player.role}</p>
+                            <p class="club-slider-player-stats">${player.stats}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
-    }
-    
-    function initSliderPlayerView() {
-        if (sliderPlayerTrack) {
-            // Create slides
-            playerData.forEach(player => {
-                const slideHTML = createPlayerSlide(player);
-                sliderPlayerTrack.innerHTML += slideHTML;
+            `;
+        }
+        
+        // Create slides
+        playerData.forEach(player => {
+            sliderPlayerTrack.innerHTML += createPlayerSlide(player);
+        });
+        
+        // Get all slides after creation
+        playerSlides = document.querySelectorAll('.club-slider-player-slide');
+        
+        // Create indicators
+        playerSlides.forEach((_, index) => {
+            const indicator = document.createElement('span');
+            indicator.classList.add('club-slider-player-indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => {
+                goToPlayerSlide(index);
+                resetPlayerInterval();
+            });
+            sliderPlayerIndicatorsContainer.appendChild(indicator);
+        });
+        
+        // Get slides per view based on screen size
+        function getSlidesPerView() {
+            if (window.innerWidth >= 1024) return 4;
+            if (window.innerWidth >= 768) return 3;
+            if (window.innerWidth >= 576) return 2;
+            return 1;
+        }
+        
+        // Update slider
+        function updatePlayerSlider() {
+            const slidesPerView = getSlidesPerView();
+            const slideWidth = 100 / slidesPerView;
+            const gap = 20;
+            
+            // Set slide width
+            playerSlides.forEach(slide => {
+                slide.style.minWidth = `calc(${slideWidth}% - ${gap * (slidesPerView - 1) / slidesPerView}px)`;
+                slide.style.marginRight = `${gap}px`;
             });
             
-            // Get all slides after creation
-            sliderPlayerSlides = document.querySelectorAll('.club-slider-player-slide');
+            // Update track position
+            const translateX = -currentPlayerSlide * (100 / slidesPerView);
+            sliderPlayerTrack.style.transform = `translateX(${translateX}%)`;
             
-            // Create indicators
-            sliderPlayerSlides.forEach((_, index) => {
-                const indicator = document.createElement('span');
-                indicator.classList.add('club-slider-player-indicator');
-                if (index === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', () => {
-                    goToSlide(index);
-                    resetSliderPlayerInterval();
-                });
-                sliderPlayerIndicatorsContainer.appendChild(indicator);
+            // Update indicators
+            const indicators = document.querySelectorAll('.club-slider-player-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('active');
+                if (index === currentPlayerSlide) {
+                    indicator.classList.add('active');
+                }
+            });
+        }
+        
+        function nextPlayerSlide() {
+            const slidesPerView = getSlidesPerView();
+            const maxSlides = playerSlides.length - slidesPerView;
+            
+            if (currentPlayerSlide < maxSlides) {
+                currentPlayerSlide++;
+            } else {
+                currentPlayerSlide = 0;
+            }
+            updatePlayerSlider();
+        }
+        
+        function prevPlayerSlide() {
+            const slidesPerView = getSlidesPerView();
+            
+            if (currentPlayerSlide > 0) {
+                currentPlayerSlide--;
+            } else {
+                const maxSlides = playerSlides.length - slidesPerView;
+                currentPlayerSlide = maxSlides;
+            }
+            updatePlayerSlider();
+        }
+        
+        function goToPlayerSlide(index) {
+            const slidesPerView = getSlidesPerView();
+            const maxSlides = playerSlides.length - slidesPerView;
+            
+            if (index >= 0 && index <= maxSlides) {
+                currentPlayerSlide = index;
+                updatePlayerSlider();
+            }
+        }
+        
+        function resetPlayerInterval() {
+            clearInterval(playerSlideInterval);
+            startPlayerInterval();
+        }
+        
+        function startPlayerInterval() {
+            playerSlideInterval = setInterval(nextPlayerSlide, 4000);
+        }
+        
+        // Initialize
+        updatePlayerSlider();
+        startPlayerInterval();
+        
+        // Event listeners
+        if (sliderPlayerPrevBtn) {
+            sliderPlayerPrevBtn.addEventListener('click', () => {
+                prevPlayerSlide();
+                resetPlayerInterval();
+            });
+        }
+        
+        if (sliderPlayerNextBtn) {
+            sliderPlayerNextBtn.addEventListener('click', () => {
+                nextPlayerSlide();
+                resetPlayerInterval();
+            });
+        }
+        
+        // Window resize
+        window.addEventListener('resize', updatePlayerSlider);
+        
+        // Pause on hover
+        const playerSliderContainer = document.querySelector('.club-slider-player-container');
+        if (playerSliderContainer) {
+            playerSliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(playerSlideInterval);
             });
             
-            // Add event listeners for navigation
-            if (sliderPlayerPrevBtn) {
-                sliderPlayerPrevBtn.addEventListener('click', () => {
-                    prevSliderPlayerSlide();
-                    resetSliderPlayerInterval();
-                });
-            }
-            
-            if (sliderPlayerNextBtn) {
-                sliderPlayerNextBtn.addEventListener('click', () => {
-                    nextSliderPlayerSlide();
-                    resetSliderPlayerInterval();
-                });
-            }
-            
-            // Calculate slides per view based on screen size
-            function getSlidesPerView() {
-                if (window.innerWidth >= 1024) return 4;
-                if (window.innerWidth >= 768) return 3;
-                if (window.innerWidth >= 576) return 2;
-                return 1;
-            }
-            
-            // Update slide width and position
-            function updateSliderPlayer() {
-                const slidesPerView = getSlidesPerView();
-                const slideWidth = 100 / slidesPerView;
-                const gap = 30; // pixels
-                
-                // Set slide width
-                sliderPlayerSlides.forEach(slide => {
-                    slide.style.minWidth = `calc(${slideWidth}% - ${gap * (slidesPerView - 1) / slidesPerView}px)`;
-                });
-                
-                // Update track position
-                const translateX = -sliderPlayerCurrentSlide * (100 / slidesPerView);
-                sliderPlayerTrack.style.transform = `translateX(${translateX}%)`;
-                
-                // Update indicators
-                const indicators = document.querySelectorAll('.club-slider-player-indicator');
-                indicators.forEach((indicator, index) => {
-                    indicator.classList.remove('active');
-                    if (index === sliderPlayerCurrentSlide) {
-                        indicator.classList.add('active');
-                    }
-                });
-            }
-            
-            function nextSliderPlayerSlide() {
-                const slidesPerView = getSlidesPerView();
-                const maxSlides = sliderPlayerSlides.length - slidesPerView;
-                
-                if (sliderPlayerCurrentSlide < maxSlides) {
-                    sliderPlayerCurrentSlide++;
-                } else {
-                    sliderPlayerCurrentSlide = 0;
-                }
-                updateSliderPlayer();
-            }
-            
-            function prevSliderPlayerSlide() {
-                const slidesPerView = getSlidesPerView();
-                
-                if (sliderPlayerCurrentSlide > 0) {
-                    sliderPlayerCurrentSlide--;
-                } else {
-                    const maxSlides = sliderPlayerSlides.length - slidesPerView;
-                    sliderPlayerCurrentSlide = maxSlides;
-                }
-                updateSliderPlayer();
-            }
-            
-            function goToSlide(index) {
-                const slidesPerView = getSlidesPerView();
-                const maxSlides = sliderPlayerSlides.length - slidesPerView;
-                
-                if (index >= 0 && index <= maxSlides) {
-                    sliderPlayerCurrentSlide = index;
-                    updateSliderPlayer();
-                }
-            }
-            
-            function resetSliderPlayerInterval() {
-                clearInterval(sliderPlayerInterval);
-                sliderPlayerInterval = setInterval(nextSliderPlayerSlide, 4000);
-            }
-            
-            // Initialize
-            updateSliderPlayer();
-            sliderPlayerInterval = setInterval(nextSliderPlayerSlide, 4000);
-            
-            // Update on window resize
-            window.addEventListener('resize', updateSliderPlayer);
-            
-            // Pause on hover
-            const sliderContainer = document.querySelector('.club-slider-player-container');
-            sliderContainer.addEventListener('mouseenter', () => {
-                clearInterval(sliderPlayerInterval);
-            });
-            
-            sliderContainer.addEventListener('mouseleave', () => {
-                resetSliderPlayerInterval();
+            playerSliderContainer.addEventListener('mouseleave', () => {
+                startPlayerInterval();
             });
         }
     }
     
-    // ===== Date Wise Flicker Calendar Functionality =====
-    function initDateFlicker() {
+    // ==================== 4. DATE FLICKER CALENDAR ====================
+    const dateFlickerCalendar = document.querySelector('.club-date-flicker-calendar');
+    if (dateFlickerCalendar) {
         const prevMonthBtn = document.querySelector('.club-date-flicker-prev-month');
         const nextMonthBtn = document.querySelector('.club-date-flicker-next-month');
         const currentMonthEl = document.querySelector('.club-date-flicker-current-month');
-        const calendarEl = document.querySelector('.club-date-flicker-calendar');
-        
-        if (!calendarEl) return;
         
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
@@ -316,13 +317,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Match dates for demonstration
         const matchDates = [
-            { date: 12, month: 5, year: 2023, match: "Kingdom CC vs Lions CC" },
-            { date: 5, month: 5, year: 2023, match: "Kingdom CC vs Tigers United" },
-            { date: 29, month: 4, year: 2023, match: "Kingdom CC vs Eagles CC" },
-            { date: 22, month: 4, year: 2023, match: "Kingdom CC vs Panthers XI" },
-            { date: 15, month: 4, year: 2023, match: "Kingdom CC vs Rhinos CC" },
-            { date: 8, month: 4, year: 2023, match: "Kingdom CC vs Hawks CC" },
-            { date: 1, month: 4, year: 2023, match: "Kingdom CC vs Falcons CC" }
+            { date: 12, month: 5, year: 2023 },
+            { date: 5, month: 5, year: 2023 },
+            { date: 29, month: 4, year: 2023 },
+            { date: 22, month: 4, year: 2023 },
+            { date: 15, month: 4, year: 2023 },
+            { date: 8, month: 4, year: 2023 },
+            { date: 1, month: 4, year: 2023 }
         ];
         
         const monthNames = [
@@ -335,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentMonthEl.textContent = `${monthNames[month]} ${year}`;
             
             // Clear calendar
-            calendarEl.innerHTML = '';
+            dateFlickerCalendar.innerHTML = '';
             
             // Add day headers
             const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -343,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const dayEl = document.createElement('div');
                 dayEl.classList.add('club-date-flicker-day');
                 dayEl.textContent = day;
-                calendarEl.appendChild(dayEl);
+                dateFlickerCalendar.appendChild(dayEl);
             });
             
             // Get first day of month
@@ -356,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let i = 0; i < firstDay; i++) {
                 const emptyEl = document.createElement('div');
                 emptyEl.classList.add('club-date-flicker-date', 'empty');
-                calendarEl.appendChild(emptyEl);
+                dateFlickerCalendar.appendChild(emptyEl);
             }
             
             // Add days of month
@@ -372,23 +373,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (hasMatch) {
                     dateEl.classList.add('match');
+                    dateEl.title = 'Match Day';
                 }
                 
                 // Highlight today
                 const today = new Date();
                 if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-                    dateEl.classList.add('active');
+                    dateEl.classList.add('today');
                 }
                 
                 // Add click event
-                dateEl.addEventListener('click', () => {
+                dateEl.addEventListener('click', function() {
                     // Remove active class from all dates
                     document.querySelectorAll('.club-date-flicker-date').forEach(el => {
                         el.classList.remove('active');
                     });
                     
                     // Add active class to clicked date
-                    dateEl.classList.add('active');
+                    this.classList.add('active');
                     
                     // Update selected date display
                     const selectedDateEl = document.querySelector('.club-date-flicker-selected-date');
@@ -397,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 
-                calendarEl.appendChild(dateEl);
+                dateFlickerCalendar.appendChild(dateEl);
             }
         }
         
@@ -428,24 +430,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // ===== Gallery Tabs Functionality =====
-    function initGalleryTabs() {
-        const tabButtons = document.querySelectorAll('.club-gallery-tab');
-        const tabContents = document.querySelectorAll('.club-gallery-content');
-        
-        if (tabButtons.length === 0) return;
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Get tab id
-                const tabId = button.getAttribute('data-tab');
+    // ==================== 5. GALLERY TABS ====================
+    const galleryTabs = document.querySelectorAll('.club-gallery-tab');
+    const galleryContents = document.querySelectorAll('.club-gallery-content');
+    
+    if (galleryTabs.length > 0) {
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
                 
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
+                // Remove active class from all tabs and contents
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                galleryContents.forEach(c => c.classList.remove('active'));
                 
-                // Add active class to clicked button
-                button.classList.add('active');
+                // Add active class to clicked tab
+                this.classList.add('active');
                 
                 // Show corresponding content
                 const content = document.querySelector(`.club-gallery-${tabId}`);
@@ -456,106 +455,292 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== Video Play Functionality =====
-    function initVideoPlayers() {
-        const videoPlayButtons = document.querySelectorAll('.club-video-play, .club-best-shot-play, .club-draft-catch-play, .club-best-bowling-play');
+    // ==================== 6. VIDEO PLAY FUNCTIONALITY ====================
+    const videoPlayButtons = document.querySelectorAll('.club-video-play, .club-best-shot-play, .club-draft-catch-play, .club-best-bowling-play');
+    
+    videoPlayButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.club-video-item, .club-best-shot-card, .club-draft-catch-card, .club-best-bowling-card');
+            const title = card.querySelector('h3')?.textContent || 'Video';
+            
+            // Create video modal
+            const modal = document.createElement('div');
+            modal.className = 'club-video-modal';
+            modal.innerHTML = `
+                <div class="club-video-modal-content">
+                    <button class="club-video-modal-close">&times;</button>
+                    <h3>${title}</h3>
+                    <div class="club-video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Video player would appear here</p>
+                        <p>In a real implementation, this would embed a YouTube/Vimeo player</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal on close button click
+            const closeBtn = modal.querySelector('.club-video-modal-close');
+            closeBtn.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            // Close modal on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    document.body.removeChild(modal);
+                }
+            });
+            
+            // Add styles for modal
+            const style = document.createElement('style');
+            style.textContent = `
+                .club-video-modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                }
+                
+                .club-video-modal-content {
+                    background: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    max-width: 800px;
+                    width: 90%;
+                    position: relative;
+                }
+                
+                .club-video-modal-close {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    background: none;
+                    border: none;
+                    font-size: 24px;
+                    cursor: pointer;
+                    color: #333;
+                }
+                
+                .club-video-placeholder {
+                    background: #f5f5f5;
+                    padding: 60px;
+                    text-align: center;
+                    border-radius: 8px;
+                    margin-top: 20px;
+                }
+                
+                .club-video-placeholder i {
+                    font-size: 48px;
+                    color: #1a365d;
+                    margin-bottom: 15px;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    });
+    
+    // ==================== 7. TESTIMONIALS SLIDER (About Page) ====================
+    const testimonials = document.querySelectorAll('.club-testimonial-card');
+    const testimonialIndicators = document.querySelectorAll('.club-testimonial-indicator');
+    const prevTestimonialBtn = document.querySelector('.club-testimonial-prev');
+    const nextTestimonialBtn = document.querySelector('.club-testimonial-next');
+    
+    if (testimonials.length > 0) {
+        let currentTestimonial = 0;
+        let testimonialInterval;
         
-        videoPlayButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // In a real implementation, this would open a video player modal
-                // For now, we'll just show an alert
-                const videoCard = this.closest('.club-video-item, .club-best-shot-card, .club-draft-catch-card, .club-best-bowling-card');
-                const title = videoCard.querySelector('h3')?.textContent || 'Video';
-                alert(`Playing: ${title}\n\nIn a full implementation, this would open a video player with the actual video content.`);
+        function showTestimonial(index) {
+            testimonials.forEach(t => t.classList.remove('club-testimonial-active'));
+            testimonialIndicators.forEach(i => i.classList.remove('club-testimonial-active'));
+            
+            testimonials[index].classList.add('club-testimonial-active');
+            testimonialIndicators[index].classList.add('club-testimonial-active');
+            currentTestimonial = index;
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Initialize
+        showTestimonial(0);
+        
+        // Start auto slide
+        testimonialInterval = setInterval(nextTestimonial, 5000);
+        
+        // Add event listeners
+        if (nextTestimonialBtn) {
+            nextTestimonialBtn.addEventListener('click', () => {
+                nextTestimonial();
+                clearInterval(testimonialInterval);
+                testimonialInterval = setInterval(nextTestimonial, 5000);
+            });
+        }
+        
+        if (prevTestimonialBtn) {
+            prevTestimonialBtn.addEventListener('click', () => {
+                prevTestimonial();
+                clearInterval(testimonialInterval);
+                testimonialInterval = setInterval(nextTestimonial, 5000);
+            });
+        }
+        
+        // Click on indicators
+        testimonialIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showTestimonial(index);
+                clearInterval(testimonialInterval);
+                testimonialInterval = setInterval(nextTestimonial, 5000);
             });
         });
+        
+        // Pause on hover
+        const testimonialsContainer = document.querySelector('.club-testimonials-slider');
+        if (testimonialsContainer) {
+            testimonialsContainer.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialsContainer.addEventListener('mouseleave', () => {
+                testimonialInterval = setInterval(nextTestimonial, 5000);
+            });
+        }
     }
     
-    // ===== Back to Top Button =====
+    // ==================== 8. BACK TO TOP BUTTON ====================
     const backToTopBtn = document.querySelector('.club-back-to-top');
     
-    function initBackToTop() {
-        if (backToTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    }
-    
-    // ===== Theme Toggle Functionality =====
-    const themeToggleBtn = document.querySelector('.club-theme-toggle');
-    
-    function initThemeToggle() {
-        if (themeToggleBtn) {
-            const themeIcon = themeToggleBtn.querySelector('i');
-            
-            // Check for saved theme or prefer-color-scheme
-            const savedTheme = localStorage.getItem('club-theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.body.classList.add('dark-theme');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.classList.remove('visible');
+                backToTopBtn.style.display = 'none';
             }
-            
-            themeToggleBtn.addEventListener('click', function() {
-                document.body.classList.toggle('dark-theme');
-                
-                if (document.body.classList.contains('dark-theme')) {
-                    localStorage.setItem('club-theme', 'dark');
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    localStorage.setItem('club-theme', 'light');
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            });
-        }
-    }
-    
-    // ===== Smooth Scrolling =====
-    function initSmoothScrolling() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
     
-    // ===== Animation on Scroll =====
-    function initScrollAnimation() {
-        const elements = document.querySelectorAll(
+    // ==================== 9. THEME TOGGLE ====================
+    const themeToggleBtn = document.querySelector('.club-theme-toggle');
+    
+    if (themeToggleBtn) {
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('kingdom-cricket-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-theme');
+            const icon = themeToggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+        
+        // Toggle theme on click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-theme');
+            const icon = themeToggleBtn.querySelector('i');
+            
+            // Update icon
+            if (icon) {
+                if (isDark) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+            
+            // Save preference
+            localStorage.setItem('kingdom-cricket-theme', isDark ? 'dark' : 'light');
+        });
+    }
+    
+    // ==================== 10. SMOOTH SCROLLING ====================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#' || href === '#!') return;
+            
+            e.preventDefault();
+            
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Calculate offset (accounting for fixed header)
+                const headerHeight = document.querySelector('.club-main-nav')?.offsetHeight || 80;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update URL
+                history.pushState(null, null, href);
+            }
+        });
+    });
+    
+    // ==================== 11. ACTIVE NAV LINK ====================
+    function setActiveNavLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            
+            const linkPage = link.getAttribute('href');
+            
+            // Check if this is the current page
+            if ((currentPage === 'index.html' && linkPage === 'index.html') ||
+                (currentPage === linkPage) ||
+                (currentPage === '' && linkPage === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Set active nav on page load
+    setActiveNavLink();
+    
+    // ==================== 12. SCROLL ANIMATIONS ====================
+    function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll(
             '.club-player-view-card, .club-performance-option-card, ' +
-            '.club-recent-match-card, .club-gallery-item, .club-video-item, ' +
-            '.club-best-shot-card, .club-draft-catch-card, .club-best-bowling-card'
+            '.club-recent-match-card, .club-coach-card, ' +
+            '.club-facility-card, .club-trophy-card'
         );
         
-        function animateOnScroll() {
-            elements.forEach(element => {
+        function checkAnimation() {
+            animatedElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
@@ -566,26 +751,110 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Set initial state for animation
-        elements.forEach(element => {
+        // Set initial state
+        animatedElements.forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         });
         
-        // Run on load and scroll
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
+        // Check on load and scroll
+        window.addEventListener('load', checkAnimation);
+        window.addEventListener('scroll', checkAnimation);
     }
     
-    // ===== Initialize All Functions =====
-    initHeroSlider();
-    initSliderPlayerView();
-    initDateFlicker();
-    initGalleryTabs();
-    initVideoPlayers();
-    initBackToTop();
-    initThemeToggle();
-    initSmoothScrolling();
-    initScrollAnimation();
+    initScrollAnimations();
+    
+    // ==================== 13. FORM VALIDATION (Contact Page) ====================
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form fields
+            const name = this.querySelector('[name="name"]')?.value.trim();
+            const email = this.querySelector('[name="email"]')?.value.trim();
+            const phone = this.querySelector('[name="phone"]')?.value.trim();
+            const message = this.querySelector('[name="message"]')?.value.trim();
+            
+            // Basic validation
+            let isValid = true;
+            let errorMessage = '';
+            
+            if (!name) {
+                isValid = false;
+                errorMessage += 'Please enter your name.\n';
+            }
+            
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                isValid = false;
+                errorMessage += 'Please enter a valid email address.\n';
+            }
+            
+            if (!phone || !/^[\d\s\-\+\(\)]{10,}$/.test(phone)) {
+                isValid = false;
+                errorMessage += 'Please enter a valid phone number.\n';
+            }
+            
+            if (!message || message.length < 10) {
+                isValid = false;
+                errorMessage += 'Please enter a message with at least 10 characters.\n';
+            }
+            
+            if (isValid) {
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            } else {
+                alert('Please correct the following errors:\n' + errorMessage);
+            }
+        });
+    }
+    
+    // ==================== 14. IMAGE ERROR HANDLING ====================
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><text x="50" y="50" text-anchor="middle" dy=".3em" font-family="Arial" font-size="10" fill="%23999">No Image</text></svg>';
+        });
+    });
+    
+    // ==================== 15. PAGE LOAD ANIMATION ====================
+    window.addEventListener('load', function() {
+        document.body.classList.add('page-loaded');
+        
+        // Add CSS for page load animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .page-loaded .club-hero-section {
+                animation: fadeIn 1s ease;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    });
+    
+    console.log('All JavaScript functionality initialized');
 });
+
+// Global error handler
+window.addEventListener('error', function(e) {
+    console.error('JavaScript Error:', e.message, 'at', e.filename + ':' + e.lineno);
+});
+
+// Resize observer for responsive adjustments
+if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(entries => {
+        // Re-initialize sliders on resize
+        const playerSliderTrack = document.querySelector('.club-slider-player-track');
+        if (playerSliderTrack) {
+            // Trigger custom event for slider resize
+            window.dispatchEvent(new Event('sliderResize'));
+        }
+    });
+    
+    resizeObserver.observe(document.body);
+}
