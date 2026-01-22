@@ -3665,3 +3665,883 @@ body.dark-theme .club-best-bowling-stats {
     background: linear-gradient(135deg, #333333, #444444);
     border-color: #f0b90b;
 }
+/* ===== Contact Page Specific Styles ===== */
+
+/* About Hero Section - Modified for Contact */
+.club-about-hero {
+    background: linear-gradient(rgba(157, 159, 157, 0.9), rgba(26, 93, 26, 0.8)), 
+                url('images/12.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0 40px;
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+}
+
+body.dark-theme .club-about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), 
+                url('images/12.jpg');
+}
+
+.club-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.club-about-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.club-about-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.club-about-hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.club-about-hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.club-about-hero-breadcrumb a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.club-about-hero-breadcrumb a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.club-about-hero-breadcrumb span {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.club-about-hero-breadcrumb i {
+    font-size: 0.7rem;
+    margin: 0 5px;
+}
+
+/* Contact Container */
+.contact-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 50px auto;
+    background: var(--light-card);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease;
+}
+
+body.dark-theme .contact-container {
+    background: var(--dark-card);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 50px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+body.dark-theme .contact-form-section {
+    background: linear-gradient(135deg, #222222 0%, #1a1a1a 100%);
+}
+
+.club-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.club-logo span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    display: block;
+}
+
+.main-logo {
+    font-size: 3rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.sub-logo {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.sub-logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.form-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: var(--gray-medium);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+body.dark-theme .form-header h1 {
+    color: white;
+}
+
+body.dark-theme .form-header p {
+    color: var(--gray-light);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body.dark-theme .form-group label {
+    color: white;
+}
+
+.form-group .required::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--light-text);
+}
+
+body.dark-theme .form-control {
+    background: #333;
+    border-color: #444;
+    color: var(--dark-text);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.1);
+}
+
+.textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* CAPTCHA Section */
+.captcha-container {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    padding: 25px;
+    border-radius: 10px;
+    margin: 25px 0;
+    color: white;
+}
+
+.captcha-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.captcha-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.captcha-header span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.captcha-code {
+    background: white;
+    color: var(--primary-color);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.captcha-code::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.captcha-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 576px) {
+    .captcha-input-group {
+        flex-direction: column;
+    }
+}
+
+.captcha-input {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    color: var(--light-text);
+}
+
+body.dark-theme .captcha-input {
+    background: #333;
+    border-color: #444;
+    color: white;
+}
+
+.captcha-input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.1);
+}
+
+.refresh-btn {
+    background: var(--secondary-color);
+    color: var(--dark-text);
+    border: none;
+    border-radius: 8px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.refresh-btn:hover {
+    background: var(--secondary-dark);
+    transform: scale(1.05);
+}
+
+.refresh-btn:active {
+    transform: scale(0.95);
+}
+
+/* Error Messages */
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(26, 93, 26, 0.3);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.success-message {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+    animation: slideIn 0.5s;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-message.show {
+    display: block;
+}
+
+.success-message i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.success-message h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.success-message p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design for Contact Page */
+@media (max-width: 768px) {
+    .club-about-hero-title {
+        font-size: 2rem;
+    }
+    
+    .club-about-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .contact-container {
+        max-width: 90%;
+        margin: 40px auto;
+    }
+    
+    .contact-form-section {
+        padding: 30px;
+    }
+    
+    .main-logo {
+        font-size: 2.5rem;
+    }
+    
+    .sub-logo {
+        font-size: 1.2rem;
+    }
+    
+    .form-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .club-about-hero {
+        min-height: 200px;
+        padding: 60px 0 30px;
+    }
+    
+    .club-about-hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-form-section {
+        padding: 20px;
+    }
+    
+    .captcha-code {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+        padding: 15px;
+    }
+    
+    .submit-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}
+/* ===== Contact Page Specific Styles ===== */
+
+/* ... (your existing contact page styles remain the same) ... */
+
+/* ===== Footer Styles ===== */
+.club-footer {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 60px 0 20px;
+    margin-top: 50px; /* Add space between form and footer */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-theme .club-footer {
+    background-color: #0a0a0a;
+}
+
+.club-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+    background-size: 200px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.club-footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Remove any margins/padding that might be pushing footer */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Ensure footer is full width and separate from form */
+.contact-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 50px auto; /* Only center form, footer stays full width */
+    background: var(--light-card);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease;
+}
+
+body.dark-theme .contact-container {
+    background: var(--dark-card);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer Content */
+.club-footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Logo Section */
+.club-footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.club-footer-logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.club-footer-logo-subtext {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+}
+
+.club-footer-tagline {
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+/* Footer Links Sections */
+.club-footer-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.club-footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* Quick Links */
+.club-footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.club-footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all var(--transition-speed);
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.club-footer-link:hover {
+    color: white;
+    padding-left: 10px;
+}
+
+.club-footer-link::before {
+    content: '→';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: all var(--transition-speed);
+    color: var(--secondary-color);
+}
+
+.club-footer-link:hover::before {
+    left: -5px;
+    opacity: 1;
+}
+
+/* Contact Info */
+.club-footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.club-footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.club-footer-contact-icon {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.club-footer-contact-detail {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Social Media */
+.club-footer-social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.club-footer-social-link {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed);
+    text-decoration: none;
+}
+
+.club-footer-social-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Footer Bottom */
+.club-footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.club-footer-links-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.club-footer-bottom-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    transition: color var(--transition-speed);
+    text-decoration: none;
+}
+
+.club-footer-bottom-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.club-copyright {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cricket Ball Animation */
+.club-footer-cricket-ball {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    animation: bounce 3s infinite ease-in-out;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(180deg);
+    }
+}
+
+.club-footer-cricket-ball i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+/* Responsive Footer */
+@media (max-width: 992px) {
+    .club-footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .club-footer-logo {
+        grid-column: span 2;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .club-footer-tagline {
+        max-width: 400px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .club-footer {
+        padding: 50px 0 20px;
+        margin-top: 40px;
+    }
+    
+    .club-footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .club-footer-logo {
+        grid-column: span 1;
+    }
+    
+    .club-footer-links-bottom {
+        gap: 20px;
+    }
+    
+    .club-footer-cricket-ball {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .club-footer-logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .club-footer-logo-subtext {
+        font-size: 0.8rem;
+    }
+    
+    .club-footer-heading {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .club-footer-links-bottom {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .club-copyright {
+        font-size: 0.75rem;
+        padding: 0 10px;
+    }
+    
+    .contact-container {
+        margin: 40px auto;
+        width: 95%;
+    }
+}

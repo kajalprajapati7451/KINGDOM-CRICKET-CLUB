@@ -858,3 +858,165 @@ if ('ResizeObserver' in window) {
     
     resizeObserver.observe(document.body);
 }
+  // Mobile menu toggle
+        const hamburger = document.querySelector('.club-nav-hamburger');
+        const navMenu = document.querySelector('.club-nav-list');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+
+        // Generate random CAPTCHA code
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let captcha = '';
+            for (let i = 0; i < 5; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return captcha;
+        }
+
+        // Initialize CAPTCHA
+        let currentCaptcha = generateCaptcha();
+        document.getElementById('captchaCode').textContent = currentCaptcha;
+
+        // Refresh CAPTCHA
+        document.getElementById('refreshCaptcha').addEventListener('click', function() {
+            currentCaptcha = generateCaptcha();
+            document.getElementById('captchaCode').textContent = currentCaptcha;
+            document.getElementById('captchaInput').value = '';
+            document.getElementById('captchaError').classList.remove('show');
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+
+        function hideError(elementId) {
+            document.getElementById(elementId).classList.remove('show');
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(error => error.classList.remove('show'));
+            
+            // Get values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const captchaInput = document.getElementById('captchaInput').value.trim().toUpperCase();
+            
+            let isValid = true;
+            
+            // Validate name
+            if (!name) {
+                showError('nameError', 'Please enter your full name');
+                isValid = false;
+            } else if (name.length < 2) {
+                showError('nameError', 'Name must be at least 2 characters');
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!email) {
+                showError('emailError', 'Please enter your email address');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate subject
+            if (!subject) {
+                showError('subjectError', 'Please enter a subject');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!message) {
+                showError('messageError', 'Please enter your message');
+                isValid = false;
+            } else if (message.length < 20) {
+                showError('messageError', 'Message must be at least 20 characters');
+                isValid = false;
+            }
+            
+            // Validate CAPTCHA
+            if (!captchaInput) {
+                showError('captchaError', 'Please enter the CAPTCHA code');
+                isValid = false;
+            } else if (captchaInput !== currentCaptcha) {
+                showError('captchaError', 'Incorrect CAPTCHA code. Please try again');
+                isValid = false;
+                
+                // Generate new CAPTCHA on wrong attempt
+                currentCaptcha = generateCaptcha();
+                document.getElementById('captchaCode').textContent = currentCaptcha;
+                document.getElementById('captchaInput').value = '';
+            }
+            
+            // If valid, submit form
+            if (isValid) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Show success message
+                    successMessage.classList.add('show');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Generate new CAPTCHA
+                    currentCaptcha = generateCaptcha();
+                    document.getElementById('captchaCode').textContent = currentCaptcha;
+                    
+                    // Reset button
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    }, 2000);
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                }, 1500);
+            }
+        });
+
+        // Real-time validation
+        const inputs = document.querySelectorAll('.form-control, .captcha-input');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                const errorId = this.id + 'Error';
+                if (errorId && document.getElementById(errorId)) {
+                    hideError(errorId);
+                }
+            });
+        });
+
+        // CAPTCHA real-time validation
+        document.getElementById('captchaInput').addEventListener('input', function() {
+            hideError('captchaError');
+        });
