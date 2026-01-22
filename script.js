@@ -181,16 +181,18 @@ document.addEventListener('DOMContentLoaded', function() {
         playerSlides = document.querySelectorAll('.club-slider-player-slide');
         
         // Create indicators
-        playerSlides.forEach((_, index) => {
-            const indicator = document.createElement('span');
-            indicator.classList.add('club-slider-player-indicator');
-            if (index === 0) indicator.classList.add('active');
-            indicator.addEventListener('click', () => {
-                goToPlayerSlide(index);
-                resetPlayerInterval();
+        if (sliderPlayerIndicatorsContainer) {
+            playerSlides.forEach((_, index) => {
+                const indicator = document.createElement('span');
+                indicator.classList.add('club-slider-player-indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => {
+                    goToPlayerSlide(index);
+                    resetPlayerInterval();
+                });
+                sliderPlayerIndicatorsContainer.appendChild(indicator);
             });
-            sliderPlayerIndicatorsContainer.appendChild(indicator);
-        });
+        }
         
         // Get slides per view based on screen size
         function getSlidesPerView() {
@@ -333,7 +335,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function renderCalendar(month, year) {
             // Update month name
-            currentMonthEl.textContent = `${monthNames[month]} ${year}`;
+            if (currentMonthEl) {
+                currentMonthEl.textContent = `${monthNames[month]} ${year}`;
+            }
             
             // Clear calendar
             dateFlickerCalendar.innerHTML = '';
@@ -480,6 +484,78 @@ document.addEventListener('DOMContentLoaded', function() {
             
             document.body.appendChild(modal);
             
+            // Add styles for modal if not already present
+            if (!document.querySelector('#video-modal-styles')) {
+                const style = document.createElement('style');
+                style.id = 'video-modal-styles';
+                style.textContent = `
+                    .club-video-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10000;
+                    }
+                    
+                    .club-video-modal-content {
+                        background: white;
+                        padding: 30px;
+                        border-radius: 10px;
+                        max-width: 800px;
+                        width: 90%;
+                        position: relative;
+                    }
+                    
+                    .club-video-modal-close {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        background: none;
+                        border: none;
+                        font-size: 24px;
+                        cursor: pointer;
+                        color: #333;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: background-color 0.3s;
+                    }
+                    
+                    .club-video-modal-close:hover {
+                        background-color: #f0f0f0;
+                    }
+                    
+                    .club-video-placeholder {
+                        background: #f5f5f5;
+                        padding: 60px;
+                        text-align: center;
+                        border-radius: 8px;
+                        margin-top: 20px;
+                    }
+                    
+                    .club-video-placeholder i {
+                        font-size: 48px;
+                        color: #1a365d;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .club-video-modal-content h3 {
+                        color: #1a365d;
+                        margin-bottom: 20px;
+                        font-size: 24px;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
             // Close modal on close button click
             const closeBtn = modal.querySelector('.club-video-modal-close');
             closeBtn.addEventListener('click', () => {
@@ -493,57 +569,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Add styles for modal
-            const style = document.createElement('style');
-            style.textContent = `
-                .club-video-modal {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10000;
+            // Close modal on Escape key
+            const closeModal = () => {
+                if (modal.parentNode) {
+                    document.body.removeChild(modal);
                 }
-                
-                .club-video-modal-content {
-                    background: white;
-                    padding: 30px;
-                    border-radius: 10px;
-                    max-width: 800px;
-                    width: 90%;
-                    position: relative;
+                document.removeEventListener('keydown', handleEscape);
+            };
+            
+            const handleEscape = (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
                 }
-                
-                .club-video-modal-close {
-                    position: absolute;
-                    top: 15px;
-                    right: 15px;
-                    background: none;
-                    border: none;
-                    font-size: 24px;
-                    cursor: pointer;
-                    color: #333;
-                }
-                
-                .club-video-placeholder {
-                    background: #f5f5f5;
-                    padding: 60px;
-                    text-align: center;
-                    border-radius: 8px;
-                    margin-top: 20px;
-                }
-                
-                .club-video-placeholder i {
-                    font-size: 48px;
-                    color: #1a365d;
-                    margin-bottom: 15px;
-                }
-            `;
-            document.head.appendChild(style);
+            };
+            
+            document.addEventListener('keydown', handleEscape);
         });
     });
     
@@ -627,11 +667,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
-                backToTopBtn.classList.add('visible');
                 backToTopBtn.style.display = 'flex';
+                setTimeout(() => {
+                    backToTopBtn.classList.add('visible');
+                }, 10);
             } else {
                 backToTopBtn.classList.remove('visible');
-                backToTopBtn.style.display = 'none';
+                setTimeout(() => {
+                    if (!backToTopBtn.classList.contains('visible')) {
+                        backToTopBtn.style.display = 'none';
+                    }
+                }, 300);
             }
         });
         
@@ -814,27 +860,211 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==================== 14. IMAGE ERROR HANDLING ====================
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
-            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><text x="50" y="50" text-anchor="middle" dy=".3em" font-family="Arial" font-size="10" fill="%23999">No Image</text></svg>';
+            // Create a simple placeholder SVG
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#f0f0f0"/>
+                <text x="50" y="50" text-anchor="middle" dy=".3em" font-family="Arial" font-size="10" fill="#999">No Image</text>
+            </svg>`;
+            this.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
         });
     });
     
-    // ==================== 15. PAGE LOAD ANIMATION ====================
+    // ==================== 15. CONTACT FORM CAPTCHA ====================
+    const captchaCode = document.getElementById('captchaCode');
+    const refreshCaptcha = document.getElementById('refreshCaptcha');
+    const captchaInput = document.getElementById('captchaInput');
+    const successMessage = document.getElementById('successMessage');
+    
+    if (captchaCode) {
+        // Generate random CAPTCHA code
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let captcha = '';
+            for (let i = 0; i < 5; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return captcha;
+        }
+        
+        // Initialize CAPTCHA
+        let currentCaptcha = generateCaptcha();
+        captchaCode.textContent = currentCaptcha;
+        
+        // Refresh CAPTCHA
+        if (refreshCaptcha) {
+            refreshCaptcha.addEventListener('click', function() {
+                currentCaptcha = generateCaptcha();
+                captchaCode.textContent = currentCaptcha;
+                if (captchaInput) {
+                    captchaInput.value = '';
+                }
+                const captchaError = document.getElementById('captchaError');
+                if (captchaError) {
+                    captchaError.classList.remove('show');
+                }
+            });
+        }
+        
+        // Enhanced form validation
+        if (contactForm && captchaInput) {
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const formControls = contactForm.querySelectorAll('.form-control');
+            
+            function showError(elementId, message) {
+                const errorElement = document.getElementById(elementId);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+                }
+            }
+            
+            function hideError(elementId) {
+                const errorElement = document.getElementById(elementId);
+                if (errorElement) {
+                    errorElement.classList.remove('show');
+                }
+            }
+            
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            // Real-time validation
+            formControls.forEach(input => {
+                input.addEventListener('input', function() {
+                    const errorId = this.id + 'Error';
+                    hideError(errorId);
+                });
+            });
+            
+            if (captchaInput) {
+                captchaInput.addEventListener('input', function() {
+                    hideError('captchaError');
+                });
+            }
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Reset errors
+                const errors = document.querySelectorAll('.error-message');
+                errors.forEach(error => error.classList.remove('show'));
+                
+                // Get values
+                const name = document.getElementById('name')?.value.trim() || '';
+                const email = document.getElementById('email')?.value.trim() || '';
+                const subject = document.getElementById('subject')?.value.trim() || '';
+                const message = document.getElementById('message')?.value.trim() || '';
+                const captchaValue = captchaInput.value.trim().toUpperCase();
+                
+                let isValid = true;
+                
+                // Validate name
+                if (!name) {
+                    showError('nameError', 'Please enter your full name');
+                    isValid = false;
+                } else if (name.length < 2) {
+                    showError('nameError', 'Name must be at least 2 characters');
+                    isValid = false;
+                }
+                
+                // Validate email
+                if (!email) {
+                    showError('emailError', 'Please enter your email address');
+                    isValid = false;
+                } else if (!validateEmail(email)) {
+                    showError('emailError', 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                // Validate subject
+                if (!subject) {
+                    showError('subjectError', 'Please enter a subject');
+                    isValid = false;
+                }
+                
+                // Validate message
+                if (!message) {
+                    showError('messageError', 'Please enter your message');
+                    isValid = false;
+                } else if (message.length < 20) {
+                    showError('messageError', 'Message must be at least 20 characters');
+                    isValid = false;
+                }
+                
+                // Validate CAPTCHA
+                if (!captchaValue) {
+                    showError('captchaError', 'Please enter the CAPTCHA code');
+                    isValid = false;
+                } else if (captchaValue !== currentCaptcha) {
+                    showError('captchaError', 'Incorrect CAPTCHA code. Please try again');
+                    isValid = false;
+                    
+                    // Generate new CAPTCHA on wrong attempt
+                    currentCaptcha = generateCaptcha();
+                    captchaCode.textContent = currentCaptcha;
+                    captchaInput.value = '';
+                }
+                
+                // If valid, submit form
+                if (isValid && submitBtn) {
+                    submitBtn.disabled = true;
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        // Show success message
+                        if (successMessage) {
+                            successMessage.classList.add('show');
+                        }
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Generate new CAPTCHA
+                        currentCaptcha = generateCaptcha();
+                        captchaCode.textContent = currentCaptcha;
+                        
+                        // Reset button
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                        }, 2000);
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            if (successMessage) {
+                                successMessage.classList.remove('show');
+                            }
+                        }, 5000);
+                    }, 1500);
+                }
+            });
+        }
+    }
+    
+    // ==================== 16. PAGE LOAD ANIMATION ====================
     window.addEventListener('load', function() {
         document.body.classList.add('page-loaded');
         
         // Add CSS for page load animation
-        const style = document.createElement('style');
-        style.textContent = `
-            .page-loaded .club-hero-section {
-                animation: fadeIn 1s ease;
-            }
-            
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
+        if (!document.querySelector('#page-load-styles')) {
+            const style = document.createElement('style');
+            style.id = 'page-load-styles';
+            style.textContent = `
+                .page-loaded .club-hero-section {
+                    animation: fadeIn 1s ease;
+                }
+                
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
     });
     
     console.log('All JavaScript functionality initialized');
@@ -858,165 +1088,3 @@ if ('ResizeObserver' in window) {
     
     resizeObserver.observe(document.body);
 }
-  // Mobile menu toggle
-        const hamburger = document.querySelector('.club-nav-hamburger');
-        const navMenu = document.querySelector('.club-nav-list');
-        
-        if (hamburger) {
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-        }
-
-        // Generate random CAPTCHA code
-        function generateCaptcha() {
-            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-            let captcha = '';
-            for (let i = 0; i < 5; i++) {
-                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return captcha;
-        }
-
-        // Initialize CAPTCHA
-        let currentCaptcha = generateCaptcha();
-        document.getElementById('captchaCode').textContent = currentCaptcha;
-
-        // Refresh CAPTCHA
-        document.getElementById('refreshCaptcha').addEventListener('click', function() {
-            currentCaptcha = generateCaptcha();
-            document.getElementById('captchaCode').textContent = currentCaptcha;
-            document.getElementById('captchaInput').value = '';
-            document.getElementById('captchaError').classList.remove('show');
-        });
-
-        // Form validation
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successMessage = document.getElementById('successMessage');
-
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-            errorElement.classList.add('show');
-        }
-
-        function hideError(elementId) {
-            document.getElementById(elementId).classList.remove('show');
-        }
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Reset errors
-            const errors = document.querySelectorAll('.error-message');
-            errors.forEach(error => error.classList.remove('show'));
-            
-            // Get values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-            const captchaInput = document.getElementById('captchaInput').value.trim().toUpperCase();
-            
-            let isValid = true;
-            
-            // Validate name
-            if (!name) {
-                showError('nameError', 'Please enter your full name');
-                isValid = false;
-            } else if (name.length < 2) {
-                showError('nameError', 'Name must be at least 2 characters');
-                isValid = false;
-            }
-            
-            // Validate email
-            if (!email) {
-                showError('emailError', 'Please enter your email address');
-                isValid = false;
-            } else if (!validateEmail(email)) {
-                showError('emailError', 'Please enter a valid email address');
-                isValid = false;
-            }
-            
-            // Validate subject
-            if (!subject) {
-                showError('subjectError', 'Please enter a subject');
-                isValid = false;
-            }
-            
-            // Validate message
-            if (!message) {
-                showError('messageError', 'Please enter your message');
-                isValid = false;
-            } else if (message.length < 20) {
-                showError('messageError', 'Message must be at least 20 characters');
-                isValid = false;
-            }
-            
-            // Validate CAPTCHA
-            if (!captchaInput) {
-                showError('captchaError', 'Please enter the CAPTCHA code');
-                isValid = false;
-            } else if (captchaInput !== currentCaptcha) {
-                showError('captchaError', 'Incorrect CAPTCHA code. Please try again');
-                isValid = false;
-                
-                // Generate new CAPTCHA on wrong attempt
-                currentCaptcha = generateCaptcha();
-                document.getElementById('captchaCode').textContent = currentCaptcha;
-                document.getElementById('captchaInput').value = '';
-            }
-            
-            // If valid, submit form
-            if (isValid) {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                // Simulate API call
-                setTimeout(() => {
-                    // Show success message
-                    successMessage.classList.add('show');
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Generate new CAPTCHA
-                    currentCaptcha = generateCaptcha();
-                    document.getElementById('captchaCode').textContent = currentCaptcha;
-                    
-                    // Reset button
-                    setTimeout(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                    }, 2000);
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.classList.remove('show');
-                    }, 5000);
-                }, 1500);
-            }
-        });
-
-        // Real-time validation
-        const inputs = document.querySelectorAll('.form-control, .captcha-input');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                const errorId = this.id + 'Error';
-                if (errorId && document.getElementById(errorId)) {
-                    hideError(errorId);
-                }
-            });
-        });
-
-        // CAPTCHA real-time validation
-        document.getElementById('captchaInput').addEventListener('input', function() {
-            hideError('captchaError');
-        });
