@@ -1088,3 +1088,85 @@ if ('ResizeObserver' in window) {
     
     resizeObserver.observe(document.body);
 }
+ // Initialize Swiper Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.spotlight-slider', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                speed: 600,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.spotlight-slider-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + ' spotlight-pagination-bullet"></span>';
+                    },
+                },
+                navigation: {
+                    nextEl: '.spotlight-slider-next',
+                    prevEl: '.spotlight-slider-prev',
+                },
+            });
+
+            // Player View Tabs
+            const playerViewTabs = document.querySelectorAll('.player-view-tab');
+            const playerViewContents = document.querySelectorAll('.player-view-content');
+
+            playerViewTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    playerViewTabs.forEach(t => t.classList.remove('active'));
+                    playerViewContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const content = document.getElementById(`player-view-${tabId}`);
+                    if (content) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+
+            // Mobile Navigation Toggle
+            const hamburger = document.querySelector('.club-nav-hamburger');
+            const navList = document.querySelector('.club-nav-list');
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.club-nav-menu')) {
+                    hamburger.classList.remove('active');
+                    navList.classList.remove('active');
+                }
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.club-back-to-top');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });

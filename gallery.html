@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Kingdom Cricket Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="club-main-nav">
+        <div class="club-nav-container">
+            <a href="index.html" class="club-nav-logo">
+                <span class="club-logo-text">KINGDOM</span>
+                <span class="club-logo-subtext">CRICKET CLUB</span>
+            </a>
+            
+            <div class="club-nav-menu">
+                <ul class="club-nav-list">
+                    <li><a href="index.html" class="club-nav-link">Home</a></li>
+                    <li><a href="about.html" class="club-nav-link">About</a></li>
+                    <li><a href="contact.html" class="club-nav-link">Contact</a></li>
+                    <li><a href="articles.html" class="club-nav-link">Article</a></li>
+                    <li><a href="players.html" class="club-nav-link">Players</a></li>
+                    <li><a href="gallery.html" class="club-nav-link active">Gallery</a></li>
+                </ul>
+                
+                <div class="club-nav-hamburger">
+                    <span class="club-hamburger-bar"></span>
+                    <span class="club-hamburger-bar"></span>
+                    <span class="club-hamburger-bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Gallery Hero Section -->
+    <section class="gallery-hero-section">
+        <div class="gallery-hero-overlay"></div>
+        <div class="gallery-hero-content">
+            <h1 class="gallery-hero-title">KINGDOM GALLERY</h1>
+            <div class="gallery-hero-breadcrumb">
+                <a href="index.html">Home</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Gallery</span>
+    </section>
+
+    <!-- 2. Gallery Navigation Tabs -->
+    <section class="gallery-nav-section">
+        <div class="club-section-container">
+            <div class="gallery-nav-tabs">
+                <button class="gallery-nav-tab active" data-section="image-gallery">
+                    <i class="fas fa-images"></i> Image Gallery
+                </button>
+                <button class="gallery-nav-tab" data-section="best-shot">
+                    <i class="fas fa-bullseye"></i> Best Shots
+                </button>
+                <button class="gallery-nav-tab" data-section="draft-catch">
+                    <i class="fas fa-hand-paper"></i> Draft Catches
+                </button>
+                <button class="gallery-nav-tab" data-section="best-bowling">
+                    <i class="fas fa-baseball-ball"></i> Best Bowling
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. NEW: Image Gallery Section -->
+    <section id="image-gallery" class="image-gallery-section">
+        <div class="club-section-container">
+            <div class="section-header">
+                <h2 class="section-title">Image Gallery</h2>
+                <p class="section-subtitle">Browse through our collection of memorable moments, team photos, and action-packed shots from our matches</p>
+            </div>
+            
+            <div class="gallery-filter">
+                <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+                <button class="gallery-filter-btn" data-filter="team">Team</button>
+                <button class="gallery-filter-btn" data-filter="match">Matches</button>
+                <button class="gallery-filter-btn" data-filter="training">Training</button>
+                <button class="gallery-filter-btn" data-filter="trophy">Trophy Celebrations</button>
+                <button class="gallery-filter-btn" data-filter="behind">Behind The Scenes</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Image 1 -->
+                <div class="gallery-item" data-category="team">
+                    <img src="https://images.unsplash.com/photo-1531315630201-bb15abeb1653?w=400&h=300&fit=crop" alt="Team Celebration">
+                    <div class="gallery-category">Team</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Championship Celebration 2023</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 15 Nov, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="gallery-item" data-category="match">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=300&fit=crop" alt="Match Action">
+                    <div class="gallery-category">Match</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Final Over Thriller</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 12 Oct, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="gallery-item" data-category="training">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop" alt="Training Session">
+                    <div class="gallery-category">Training</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Morning Practice Session</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 05 Sep, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="gallery-item" data-category="trophy">
+                    <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=400&h=300&fit=crop" alt="Trophy Lift">
+                    <div class="gallery-category">Trophy</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Premier League Trophy Lift</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 20 Aug, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="gallery-item" data-category="behind">
+                    <img src="https://images.unsplash.com/photo-1519861531473-920034658307?w=400&h=300&fit=crop" alt="Behind Scenes">
+                    <div class="gallery-category">Behind</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Team Strategy Meeting</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 30 Jul, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="gallery-item" data-category="match">
+                    <img src="https://images.unsplash.com/photo-1628242220338-9d581d2c0e70?w=400&h=300&fit=crop" alt="Match Victory">
+                    <div class="gallery-category">Match</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Victory Celebration</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 25 Jun, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="gallery-item" data-category="team">
+                    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=400&h=300&fit=crop" alt="Team Photo">
+                    <div class="gallery-category">Team</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Official Team Photo 2023</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 15 May, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="gallery-item" data-category="training">
+                    <img src="https://images.unsplash.com/photo-1579972661787-0e959f5d24c8?w=400&h=300&fit=crop" alt="Net Practice">
+                    <div class="gallery-category">Training</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Intensive Net Practice</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 10 Apr, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 9 -->
+                <div class="gallery-item" data-category="trophy">
+                    <img src="https://images.unsplash.com/photo-1594736797933-d1001c29b5e2?w=400&h=300&fit=crop" alt="Award Ceremony">
+                    <div class="gallery-category">Trophy</div>
+                    <div class="gallery-zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3 class="gallery-title">Awards Ceremony Night</h3>
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i> 28 Mar, 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Best Shot Videos Section -->
+    <section id="best-shot" class="best-shot-section">
+        <div class="club-section-container">
+            <div class="section-header">
+                <h2 class="section-title">Best Shot Videos</h2>
+                <p class="section-subtitle">Watch the most spectacular shots that redefine batting excellence</p>
+            </div>
+            
+            <div class="best-shot-grid">
+                <!-- Shot 1 -->
+                <div class="best-shot-card" data-video="shot1">
+                    <div class="shot-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=600&h=400&fit=crop" alt="Massive Six">
+                        <div class="shot-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="shot-duration">0:32</div>
+                    </div>
+                    <div class="shot-info">
+                        <div class="shot-badge">Power Hitting</div>
+                        <h3 class="shot-title">Massive 110m Six Over Long-on</h3>
+                        <div class="shot-player">
+                            <i class="fas fa-user"></i> David Miller
+                        </div>
+                        <p class="shot-details">Match: KCC vs Eagles CC | Distance: 110 meters | Tournament: Premier League 2023</p>
+                        <div class="shot-stats">
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">98m</span>
+                                <span class="shot-stat-label">Distance</span>
+                            </div>
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">145</span>
+                                <span class="shot-stat-label">Strike Rate</span>
+                            </div>
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">9.5</span>
+                                <span class="shot-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shot 2 -->
+                <div class="best-shot-card" data-video="shot2">
+                    <div class="shot-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1531315630201-bb15abeb1653?w=600&h=400&fit=crop" alt="Perfect Cover Drive">
+                        <div class="shot-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="shot-duration">0:28</div>
+                    </div>
+                    <div class="shot-info">
+                        <div class="shot-badge">Classic Stroke</div>
+                        <h3 class="shot-title">Perfect Cover Drive Boundary</h3>
+                        <div class="shot-player">
+                            <i class="fas fa-user"></i> Alex Turner
+                        </div>
+                        <p class="shot-details">Match: KCC vs Lions CC | Timing: Perfect | Tournament: Championship Final</p>
+                        <div class="shot-stats">
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">95m</span>
+                                <span class="shot-stat-label">Distance</span>
+                            </div>
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">132</span>
+                                <span class="shot-stat-label">Strike Rate</span>
+                            </div>
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">9.8</span>
+                                <span class="shot-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shot 3 -->
+                <div class="best-shot-card" data-video="shot3">
+                    <div class="shot-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&h=400&fit=crop" alt="Reverse Sweep">
+                        <div class="shot-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="shot-duration">0:35</div>
+                    </div>
+                    <div class="shot-info">
+                        <div class="shot-badge">Innovative</div>
+                        <h3 class="shot-title">Reverse Sweep for Six</h3>
+                        <div class="shot-player">
+                            <i class="fas fa-user"></i> Steve Smith
+                        </div>
+                        <p class="shot-details">Match: KCC vs Panthers XI | Innovation: 10/10 | Tournament: T20 Cup</p>
+                        <div class="shot-stats">
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">82m</span>
+                                <span class="shot-stat-label">Distance</span>
+                            </div>
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">158</span>
+                                <span class="shot-stat-label">Strike Rate</span>
+                            </div>
+                            <div class="shot-stat">
+                                <span class="shot-stat-value">9.2</span>
+                                <span class="shot-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Draft Catch Videos Section -->
+    <section id="draft-catch" class="draft-catch-section">
+        <div class="club-section-container">
+            <div class="section-header">
+                <h2 class="section-title">Draft Catch Videos</h2>
+                <p class="section-subtitle">Incredible catches that turned matches and created history</p>
+            </div>
+            
+            <div class="catch-grid">
+                <!-- Catch 1 -->
+                <div class="catch-card" data-video="catch1">
+                    <div class="catch-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1628242220338-9d581d2c0e70?w=600&h=400&fit=crop" alt="One-handed Catch">
+                        <div class="catch-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="catch-tag">Match-winning</div>
+                    </div>
+                    <div class="catch-info">
+                        <div class="catch-badge">One-handed</div>
+                        <h3 class="catch-title">One-handed Blinder at Slips</h3>
+                        <div class="catch-player">
+                            <i class="fas fa-user"></i> Steve Smith
+                        </div>
+                        <p class="catch-details">Match: KCC vs Panthers XI | Difficulty: Extreme | Tournament: Premier League</p>
+                        <div class="catch-stats">
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">0.18s</span>
+                                <span class="catch-stat-label">Reaction Time</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">98%</span>
+                                <span class="catch-stat-label">Success Rate</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">2.1m</span>
+                                <span class="catch-stat-label">Jump Height</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">9.9</span>
+                                <span class="catch-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Catch 2 -->
+                <div class="catch-card" data-video="catch2">
+                    <div class="catch-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&h=400&fit=crop" alt="Running Catch">
+                        <div class="catch-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="catch-tag">Spectacular</div>
+                    </div>
+                    <div class="catch-info">
+                        <div class="catch-badge">Running Catch</div>
+                        <h3 class="catch-title">25m Sprint & Boundary Catch</h3>
+                        <div class="catch-player">
+                            <i class="fas fa-user"></i> James Anderson
+                        </div>
+                        <p class="catch-details">Match: KCC vs Tigers United | Distance: 25 meters | Tournament: Championship</p>
+                        <div class="catch-stats">
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">25m</span>
+                                <span class="catch-stat-label">Running</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">1.2m</span>
+                                <span class="catch-stat-label">Jump Height</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">95%</span>
+                                <span class="catch-stat-label">Success Rate</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">9.7</span>
+                                <span class="catch-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Catch 3 -->
+                <div class="catch-card" data-video="catch3">
+                    <div class="catch-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1579972661787-0e959f5d24c8?w=600&h=400&fit=crop" alt="Flying Catch">
+                        <div class="catch-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="catch-tag">Unbelievable</div>
+                    </div>
+                    <div class="catch-info">
+                        <div class="catch-badge">Flying Catch</div>
+                        <h3 class="catch-title">Full-stretch Diving Catch</h3>
+                        <div class="catch-player">
+                            <i class="fas fa-user"></i> David Miller
+                        </div>
+                        <p class="catch-details">Match: KCC vs Eagles CC | Dive: 3.5 meters | Tournament: T20 Cup</p>
+                        <div class="catch-stats">
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">3.5m</span>
+                                <span class="catch-stat-label">Dive Distance</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">0.22s</span>
+                                <span class="catch-stat-label">Reaction</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">92%</span>
+                                <span class="catch-stat-label">Success Rate</span>
+                            </div>
+                            <div class="catch-stat">
+                                <span class="catch-stat-value">9.5</span>
+                                <span class="catch-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Best Bowling Videos Section -->
+    <section id="best-bowling" class="best-bowling-section">
+        <div class="club-section-container">
+            <div class="section-header">
+                <h2 class="section-title">Best Bowling Videos</h2>
+                <p class="section-subtitle">Unplayable deliveries and perfect spells that destroyed batting lineups</p>
+            </div>
+            
+            <div class="bowling-grid">
+                <!-- Bowling 1 -->
+                <div class="bowling-card" data-video="bowling1">
+                    <div class="bowling-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1519861531473-920034658307?w=600&h=400&fit=crop" alt="Perfect Yorker">
+                        <div class="bowling-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="bowling-tag">Unplayable</div>
+                    </div>
+                    <div class="bowling-info">
+                        <div class="bowling-badge">Toe-crusher</div>
+                        <h3 class="bowling-title">Perfect Yorker at 145km/h</h3>
+                        <div class="bowling-player">
+                            <i class="fas fa-user"></i> James Anderson
+                        </div>
+                        <p class="bowling-details">Match: KCC vs Lions CC | Speed: 145 km/h | Tournament: Championship Final</p>
+                        <div class="bowling-stats">
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">145</span>
+                                <span class="bowling-stat-label">Speed</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">4.2</span>
+                                <span class="bowling-stat-label">Economy</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">5/15</span>
+                                <span class="bowling-stat-label">Best</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">9.8</span>
+                                <span class="bowling-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bowling 2 -->
+                <div class="bowling-card" data-video="bowling2">
+                    <div class="bowling-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&h=400&fit=crop" alt="Spin Delivery">
+                        <div class="bowling-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="bowling-tag">Turning Sharply</div>
+                    </div>
+                    <div class="bowling-info">
+                        <div class="bowling-badge">Off-spinner</div>
+                        <h3 class="bowling-title">Sharp Turning Off-break</h3>
+                        <div class="bowling-player">
+                            <i class="fas fa-user"></i> David Miller
+                        </div>
+                        <p class="bowling-details">Match: KCC vs Eagles CC | Turn: 8.5° | Tournament: Premier League</p>
+                        <div class="bowling-stats">
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">8.5°</span>
+                                <span class="bowling-stat-label">Turn</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">4.1</span>
+                                <span class="bowling-stat-label">Economy</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">4/22</span>
+                                <span class="bowling-stat-label">Best</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">9.3</span>
+                                <span class="bowling-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bowling 3 -->
+                <div class="bowling-card" data-video="bowling3">
+                    <div class="bowling-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1594736797933-d1001c29b5e2?w=600&h=400&fit=crop" alt="Bouncer">
+                        <div class="bowling-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="bowling-tag">Lethal</div>
+                    </div>
+                    <div class="bowling-info">
+                        <div class="bowling-badge">Bouncer</div>
+                        <h3 class="bowling-title">Lethal Bouncer at 148km/h</h3>
+                        <div class="bowling-player">
+                            <i class="fas fa-user"></i> Alex Turner
+                        </div>
+                        <p class="bowling-details">Match: KCC vs Rhinos CC | Speed: 148 km/h | Tournament: T20 Cup</p>
+                        <div class="bowling-stats">
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">148</span>
+                                <span class="bowling-stat-label">Speed</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">4.5</span>
+                                <span class="bowling-stat-label">Economy</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">3/18</span>
+                                <span class="bowling-stat-label">Best</span>
+                            </div>
+                            <div class="bowling-stat">
+                                <span class="bowling-stat-value">9.6</span>
+                                <span class="bowling-stat-label">Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Indicator -->
+    <div class="section-indicator">
+        <div class="indicator-dot active" data-title="Image Gallery" data-section="image-gallery"></div>
+        <div class="indicator-dot" data-title="Best Shots" data-section="best-shot"></div>
+        <div class="indicator-dot" data-title="Draft Catches" data-section="draft-catch"></div>
+        <div class="indicator-dot" data-title="Best Bowling" data-section="best-bowling"></div>
+    </div>
+
+    <!-- Cricket Ball Scroll to Top -->
+    <div class="cricket-ball" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 class="video-modal-title" id="modalTitle">Video Title</h3>
+                <button class="video-modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-placeholder" id="videoPlayer">
+                    <i class="fas fa-play-circle"></i> Video would play here
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="club-footer">
+        <div class="club-footer-container">
+            <div class="club-footer-content">
+                <!-- Logo Section -->
+                <div class="club-footer-logo">
+                    <div class="club-footer-logo-text">KINGDOM</div>
+                    <div class="club-footer-logo-subtext">CRICKET CLUB</div>
+                    <p class="club-footer-tagline">Where champions are made and dreams become reality</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="club-footer-links-section">
+                    <h3 class="club-footer-heading">Quick Links</h3>
+                    <div class="club-footer-links">
+                        <a href="index.html" class="club-footer-link">Home</a>
+                        <a href="about.html" class="club-footer-link">About Us</a>
+                        <a href="players.html" class="club-footer-link">Our Players</a>
+                        <a href="matches.html" class="club-footer-link">Match Schedule</a>
+                        <a href="gallery.html" class="club-footer-link">Gallery</a>
+                        <a href="contact.html" class="club-footer-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="club-footer-bottom">
+                <div class="club-footer-links-bottom">
+                    <a href="#" class="club-footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="club-footer-bottom-link">Terms of Service</a>
+                    <a href="#" class="club-footer-bottom-link">Disclaimer</a>
+                </div>
+                <p class="club-copyright">This website is meant only for information purposes. It should not be considered/ claimed as an official site. This website belongs to authorized channel partner.</p>
+            </div>
+        </div>
+        
+        <!-- Cricket Ball Animation -->
+        <div class="club-footer-cricket-ball">
+            <i class="fas fa-baseball-ball"></i>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="club-back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Gallery Page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation Tabs
+            const navTabs = document.querySelectorAll('.gallery-nav-tab');
+            const sections = document.querySelectorAll('section[id]');
+            const indicatorDots = document.querySelectorAll('.indicator-dot');
+            
+            // Smooth scroll to section when tab is clicked
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const sectionId = tab.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    
+                    // Update active tab
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Update indicator dots
+                    indicatorDots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-section') === sectionId) {
+                            dot.classList.add('active');
+                        }
+                    });
+                    
+                    // Smooth scroll to section
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Indicator Dots Click
+            indicatorDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const sectionId = dot.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    
+                    // Update active dot
+                    indicatorDots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                    
+                    // Update active tab
+                    navTabs.forEach(tab => {
+                        tab.classList.remove('active');
+                        if (tab.getAttribute('data-section') === sectionId) {
+                            tab.classList.add('active');
+                        }
+                    });
+                    
+                    // Smooth scroll to section
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Video Play Buttons
+            const playButtons = document.querySelectorAll('.shot-play-btn, .catch-play-btn, .bowling-play-btn');
+            const videoModal = document.getElementById('videoModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const closeModal = document.getElementById('closeModal');
+            
+            playButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const card = button.closest('.best-shot-card, .catch-card, .bowling-card');
+                    const videoId = card.getAttribute('data-video');
+                    const title = card.querySelector('.shot-title, .catch-title, .bowling-title').textContent;
+                    const player = card.querySelector('.shot-player, .catch-player, .bowling-player').textContent;
+                    
+                    // Set modal content
+                    modalTitle.textContent = title;
+                    
+                    // Show modal
+                    videoModal.classList.add('active');
+                    
+                    // In a real implementation, you would load the actual video here
+                    // For demo, we're just showing a placeholder
+                    const videoPlayer = document.getElementById('videoPlayer');
+                    videoPlayer.innerHTML = `
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                            <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--secondary-color);"></i>
+                            <div style="text-align: center;">
+                                <h4 style="color: white; margin-bottom: 10px;">${title}</h4>
+                                <p style="color: rgba(255, 255, 255, 0.7);">${player}</p>
+                                <p style="color: rgba(255, 255, 255, 0.5); margin-top: 20px;">Video would play here in real implementation</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', () => {
+                videoModal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove('active');
+                }
+            });
+            
+            // Scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Update indicator dots on scroll
+            function updateActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.id;
+                    }
+                });
+                
+                if (currentSection) {
+                    // Update indicator dots
+                    indicatorDots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.getAttribute('data-section') === currentSection) {
+                            dot.classList.add('active');
+                        }
+                    });
+                    
+                    // Update navigation tabs
+                    navTabs.forEach(tab => {
+                        tab.classList.remove('active');
+                        if (tab.getAttribute('data-section') === currentSection) {
+                            tab.classList.add('active');
+                        }
+                    });
+                }
+            }
+            
+            // Image Gallery Filtering
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active filter button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            if (item.getAttribute('data-category') === filterValue) {
+                                item.style.display = 'block';
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'scale(1)';
+                                }, 10);
+                            } else {
+                                item.style.opacity = '0';
+                                item.style.transform = 'scale(0.8)';
+                                setTimeout(() => {
+                                    item.style.display = 'none';
+                                }, 300);
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Image Gallery Zoom (using Lightbox)
+            const zoomButtons = document.querySelectorAll('.gallery-zoom-btn');
+            
+            zoomButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const galleryItem = button.closest('.gallery-item');
+                    const imgSrc = galleryItem.querySelector('img').src;
+                    const title = galleryItem.querySelector('.gallery-title').textContent;
+                    
+                    // In a real implementation, you would use Lightbox2 or similar
+                    // For demo, we'll create a simple modal
+                    const lightbox = document.createElement('div');
+                    lightbox.style.position = 'fixed';
+                    lightbox.style.top = '0';
+                    lightbox.style.left = '0';
+                    lightbox.style.width = '100%';
+                    lightbox.style.height = '100%';
+                    lightbox.style.background = 'rgba(0, 0, 0, 0.9)';
+                    lightbox.style.zIndex = '2001';
+                    lightbox.style.display = 'flex';
+                    lightbox.style.alignItems = 'center';
+                    lightbox.style.justifyContent = 'center';
+                    lightbox.style.opacity = '0';
+                    lightbox.style.transition = 'opacity 0.3s ease';
+                    
+                    lightbox.innerHTML = `
+                        <div style="position: relative; max-width: 90%; max-height: 90%;">
+                            <img src="${imgSrc}" alt="${title}" style="max-width: 100%; max-height: 80vh; border-radius: 10px;">
+                            <div style="position: absolute; top: 20px; right: 20px;">
+                                <button class="close-lightbox" style="background: #FF6B6B; border: none; width: 40px; height: 40px; border-radius: 50%; color: white; font-size: 1.2rem; cursor: pointer;">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div style="color: white; text-align: center; margin-top: 15px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                                ${title}
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(lightbox);
+                    
+                    // Fade in
+                    setTimeout(() => {
+                        lightbox.style.opacity = '1';
+                    }, 10);
+                    
+                    // Close lightbox
+                    lightbox.addEventListener('click', (e) => {
+                        if (e.target === lightbox || e.target.closest('.close-lightbox')) {
+                            lightbox.style.opacity = '0';
+                            setTimeout(() => {
+                                document.body.removeChild(lightbox);
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', updateActiveSection);
+            
+            // Card hover effects
+            const cards = document.querySelectorAll('.best-shot-card, .catch-card, .bowling-card, .gallery-item');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const playBtn = card.querySelector('.shot-play-btn, .catch-play-btn, .bowling-play-btn, .gallery-zoom-btn');
+                    if (playBtn) {
+                        playBtn.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const playBtn = card.querySelector('.shot-play-btn, .catch-play-btn, .bowling-play-btn, .gallery-zoom-btn');
+                    if (playBtn) {
+                        playBtn.style.transform = 'translate(-50%, -50%) scale(1)';
+                    }
+                });
+                
+                // Click entire card to play video
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('.shot-play-btn, .catch-play-btn, .bowling-play-btn, .gallery-zoom-btn')) {
+                        const playBtn = card.querySelector('.shot-play-btn, .catch-play-btn, .bowling-play-btn');
+                        if (playBtn) {
+                            playBtn.click();
+                        }
+                    }
+                });
+            });
+            
+            // Mobile Navigation
+            const hamburger = document.querySelector('.club-nav-hamburger');
+            const navList = document.querySelector('.club-nav-list');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on links
+            const navLinks = document.querySelectorAll('.club-nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navList.classList.remove('active');
+                });
+            });
+            
+            // Back to Top Button
+            const backToTop = document.querySelector('.club-back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Initialize with first section active
+            updateActiveSection();
+        });
+    </script>
+</body>
+</html>
