@@ -1170,3 +1170,125 @@ if ('ResizeObserver' in window) {
                 });
             });
         });
+        // Articles Page JavaScript
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Articles Filter Functionality
+    const filterButtons = document.querySelectorAll('.club-articles-filter-btn');
+    const articleCards = document.querySelectorAll('.club-article-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter articles
+            articleCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+    
+    // Tournament Tabs Functionality
+    const tournamentTabs = document.querySelectorAll('.club-tournaments-tab');
+    const tournamentContents = document.querySelectorAll('.club-tournament-tab-content');
+    
+    tournamentTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active tab
+            tournamentTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding content
+            const tabId = this.getAttribute('data-tab');
+            tournamentContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${tabId}-tournaments`) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+    
+    // Load More Articles Functionality
+    const loadMoreButton = document.getElementById('club-load-more-articles');
+    if (loadMoreButton) {
+        loadMoreButton.addEventListener('click', function() {
+            // Simulate loading more articles
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                // In a real application, this would fetch more articles from a server
+                alert('More articles would be loaded in a real application.');
+                this.innerHTML = 'Load More Articles';
+                this.disabled = false;
+            }, 1500);
+        });
+    }
+    
+    // Newsletter Subscription
+    const newsletterForm = document.querySelector('.club-newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('.club-newsletter-input');
+            const submitButton = this.querySelector('.club-btn');
+            
+            if (emailInput.value && isValidEmail(emailInput.value)) {
+                // Simulate subscription
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+                submitButton.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                    submitButton.innerHTML = 'Subscribe';
+                    submitButton.disabled = false;
+                }, 1500);
+            } else {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+            }
+        });
+    }
+    
+    // Set Reminder Buttons
+    const reminderButtons = document.querySelectorAll('.club-btn-reminder');
+    reminderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tournamentTitle = this.closest('.club-tournament-card').querySelector('.club-tournament-title').textContent;
+            
+            if (this.classList.contains('reminder-set')) {
+                this.innerHTML = '<i class="far fa-bell"></i> Set Reminder';
+                this.classList.remove('reminder-set');
+                alert(`Reminder for "${tournamentTitle}" has been removed.`);
+            } else {
+                this.innerHTML = '<i class="fas fa-bell"></i> Reminder Set';
+                this.classList.add('reminder-set');
+                alert(`Reminder set for "${tournamentTitle}"! You'll be notified before the tournament starts.`);
+            }
+        });
+    });
+    
+    // Helper function to validate email
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+});

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Cricket Club | Articles & Tournaments</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="club-main-nav">
+        <div class="club-nav-container">
+            <a href="index.html" class="club-nav-logo">
+                <span class="club-logo-text">KINGDOM</span>
+                <span class="club-logo-subtext">CRICKET CLUB</span>
+            </a>
+            
+            <div class="club-nav-menu">
+                <ul class="club-nav-list">
+                    <li><a href="index.html" class="club-nav-link">Home</a></li>
+                    <li><a href="about.html" class="club-nav-link">About</a></li>
+                    <li><a href="contact.html" class="club-nav-link">Contact</a></li>
+                    <li><a href="articles.html" class="club-nav-link active">Article</a></li>
+                    <li><a href="players.html" class="club-nav-link">Players</a></li>
+                    <li><a href="gallery.html" class="club-nav-link">Gallery</a></li>
+                </ul>
+                
+                <div class="club-nav-hamburger">
+                    <span class="club-hamburger-bar"></span>
+                    <span class="club-hamburger-bar"></span>
+                    <span class="club-hamburger-bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Articles Hero Section -->
+      <section class="club-articles-hero">
+    <div class="club-section-container">
+        <div class="club-articles-hero-content">
+            <h1 class="club-articles-hero-title">Latest Articles & Tournament Updates</h1>
+            <p class="club-articles-hero-subtitle">Stay updated with our latest news, match analyses, and tournament schedules</p>
+            <div class="club-articles-hero-breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Articles & Updates</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Featured Articles Section -->
+    <section id="articles" class="club-articles-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Featured Articles</h2>
+                <p class="club-section-subtitle">In-depth analysis, player interviews, and club news</p>
+            </div>
+            
+            <!-- Articles Filter -->
+            <div class="club-articles-filter">
+                <button class="club-articles-filter-btn active" data-filter="all">All Articles</button>
+                <button class="club-articles-filter-btn" data-filter="news">Club News</button>
+                <button class="club-articles-filter-btn" data-filter="analysis">Match Analysis</button>
+                <button class="club-articles-filter-btn" data-filter="interview">Player Interviews</button>
+                <button class="club-articles-filter-btn" data-filter="tips">Training Tips</button>
+            </div>
+            
+            <!-- Articles Grid -->
+            <div class="club-articles-grid">
+                <!-- Article 1 -->
+                <article class="club-article-card club-article-featured" data-category="news">
+                    <div class="club-article-image">
+                        <img src="images/4.jfif" alt="Championship Victory">
+                        <div class="club-article-badge">Featured</div>
+                    </div>
+                    <div class="club-article-content">
+                        <div class="club-article-meta">
+                            <span class="club-article-category">Club News</span>
+                            <span class="club-article-date">June 15, 2023</span>
+                        </div>
+                        <h3 class="club-article-title">Kingdom CC Clinches 2023 Premier League Championship</h3>
+                        <p class="club-article-excerpt">A comprehensive review of our team's journey to victory in the Premier Cricket League tournament. From early setbacks to final triumph, read about the key moments that defined our championship season.</p>
+                        <div class="club-article-footer">
+                            <div class="club-article-author">
+                                <div class="club-article-author-image">
+                                    <img src="images/13.jfif" alt="Author">
+                                </div>
+                                <div class="club-article-author-info">
+                                    <h4>Michael Roberts</h4>
+                                    <p>Club Journalist</p>
+                                </div>
+                            </div>
+                            <a href="article-details.html" class="club-article-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="club-article-card" data-category="analysis">
+                    <div class="club-article-image">
+                        <img src="images/12.jfif" alt="Match Analysis">
+                        <div class="club-article-badge">Analysis</div>
+                    </div>
+                    <div class="club-article-content">
+                        <div class="club-article-meta">
+                            <span class="club-article-category">Match Analysis</span>
+                            <span class="club-article-date">June 12, 2023</span>
+                        </div>
+                        <h3 class="club-article-title">Tactical Breakdown: How Our Bowling Won the Lions CC Match</h3>
+                        <p class="club-article-excerpt">An in-depth analysis of James Anderson's spell and the strategic field placements that led to our 53-run victory against Lions CC.</p>
+                        <div class="club-article-footer">
+                            <div class="club-article-author">
+                                <div class="club-article-author-image">
+                                    <img src="images/9.jfif" alt="Author">
+                                </div>
+                                <div class="club-article-author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Cricket Analyst</p>
+                                </div>
+                            </div>
+                            <a href="article-details.html" class="club-article-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="club-article-card" data-category="interview">
+                    <div class="club-article-image">
+                        <img src="images/10.jfif" alt="Player Interview">
+                    </div>
+                    <div class="club-article-content">
+                        <div class="club-article-meta">
+                            <span class="club-article-category">Player Interview</span>
+                            <span class="club-article-date">June 8, 2023</span>
+                        </div>
+                        <h3 class="club-article-title">Exclusive Interview with Alex Turner: The Making of a Star Batsman</h3>
+                        <p class="club-article-excerpt">We sit down with our opening batsman to discuss his training regimen, mental preparation, and his match-winning innings against Lions CC.</p>
+                        <div class="club-article-footer">
+                            <div class="club-article-author">
+                                <div class="club-article-author-image">
+                                    <img src="images/12.jfif" alt="Author">
+                                </div>
+                                <div class="club-article-author-info">
+                                    <h4>David Wilson</h4>
+                                    <p>Sports Journalist</p>
+                                </div>
+                            </div>
+                            <a href="article-details.html" class="club-article-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 4 -->
+                <article class="club-article-card" data-category="tips">
+                    <div class="club-article-image">
+                        <img src="images/13.jfif" alt="Training Tips">
+                    </div>
+                    <div class="club-article-content">
+                        <div class="club-article-meta">
+                            <span class="club-article-category">Training Tips</span>
+                            <span class="club-article-date">June 5, 2023</span>
+                        </div>
+                        <h3 class="club-article-title">5 Fielding Drills That Transformed Our Team's Performance</h3>
+                        <p class="club-article-excerpt">Our fielding coach shares the top drills that helped our team achieve the best fielding statistics in the league this season.</p>
+                        <div class="club-article-footer">
+                            <div class="club-article-author">
+                                <div class="club-article-author-image">
+                                    <img src="images/9.jfif" alt="Author">
+                                </div>
+                                <div class="club-article-author-info">
+                                    <h4>Coach Thompson</h4>
+                                    <p>Fielding Coach</p>
+                                </div>
+                            </div>
+                            <a href="article-details.html" class="club-article-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 5 -->
+                <article class="club-article-card" data-category="news">
+                    <div class="club-article-image">
+                        <img src="images/12.jfif" alt="Youth Academy">
+                    </div>
+                    <div class="club-article-content">
+                        <div class="club-article-meta">
+                            <span class="club-article-category">Club News</span>
+                            <span class="club-article-date">June 1, 2023</span>
+                        </div>
+                        <h3 class="club-article-title">New Youth Academy Launches with Record Enrollment</h3>
+                        <p class="club-article-excerpt">Our new youth development program has attracted over 200 young cricketers. Learn about our coaching philosophy and future stars.</p>
+                        <div class="club-article-footer">
+                            <div class="club-article-author">
+                                <div class="club-article-author-image">
+                                    <img src="images/13.jfif" alt="Author">
+                                </div>
+                                <div class="club-article-author-info">
+                                    <h4>Lisa Matthews</h4>
+                                    <p>Academy Director</p>
+                                </div>
+                            </div>
+                            <a href="article-details.html" class="club-article-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 6 -->
+                <article class="club-article-card" data-category="analysis">
+                    <div class="club-article-image">
+                        <img src="images/4.jfif" alt="Batting Analysis">
+                    </div>
+                    <div class="club-article-content">
+                        <div class="club-article-meta">
+                            <span class="club-article-category">Match Analysis</span>
+                            <span class="club-article-date">May 28, 2023</span>
+                        </div>
+                        <h3 class="club-article-title">Statistical Analysis: Our Batting Powerplay Dominance</h3>
+                        <p class="club-article-excerpt">How our team consistently scores 50+ runs in the batting powerplay - a detailed look at our strategies and execution.</p>
+                        <div class="club-article-footer">
+                            <div class="club-article-author">
+                                <div class="club-article-author-image">
+                                    <img src="images/10.jfif" alt="Author">
+                                </div>
+                                <div class="club-article-author-info">
+                                    <h4>Robert Chen</h4>
+                                    <p>Data Analyst</p>
+                                </div>
+                            </div>
+                            <a href="article-details.html" class="club-article-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Load More Articles Button -->
+            <div class="club-section-footer">
+                <button class="club-btn club-btn-outline" id="club-load-more-articles">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournaments Section -->
+    <section id="tournaments" class="club-tournaments-section">
+        <div class="club-section-container">
+            <div class="club-section-header">
+                <h2 class="club-section-title">Upcoming Tournaments</h2>
+                <p class="club-section-subtitle">Our schedule for the upcoming cricket season</p>
+            </div>
+            
+            <!-- Tournament Tabs -->
+            <div class="club-tournaments-tabs">
+                <button class="club-tournaments-tab active" data-tab="upcoming">Upcoming</button>
+                <button class="club-tournaments-tab" data-tab="ongoing">Ongoing</button>
+                <button class="club-tournaments-tab" data-tab="completed">Completed</button>
+            </div>
+            
+            <!-- Tournaments Content -->
+            <div class="club-tournaments-content">
+                <!-- Upcoming Tournaments -->
+                <div class="club-tournament-tab-content active" id="upcoming-tournaments">
+                    <div class="club-tournament-cards">
+                        <!-- Tournament 1 -->
+                        <div class="club-tournament-card">
+                            <div class="club-tournament-header">
+                                <div class="club-tournament-title">Summer Premier League 2023</div>
+                                <div class="club-tournament-status club-tournament-upcoming">Upcoming</div>
+                            </div>
+                            <div class="club-tournament-details">
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>July 15 - August 20, 2023</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>National Cricket Stadium</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Prize Pool: $50,000</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>8 Teams Participating</span>
+                                </div>
+                            </div>
+                            <div class="club-tournament-teams">
+                                <div class="club-tournament-team">
+                                    <div class="club-tournament-team-logo">KCC</div>
+                                    <div class="club-tournament-team-name">Kingdom CC</div>
+                                </div>
+                                <div class="club-tournament-teams-others">
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">LCC</div>
+                                        <div class="club-tournament-team-name">Lions CC</div>
+                                    </div>
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">TCC</div>
+                                        <div class="club-tournament-team-name">Tigers CC</div>
+                                    </div>
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">ECC</div>
+                                        <div class="club-tournament-team-name">Eagles CC</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="club-tournament-footer">
+                                <a href="tournament-details.html" class="club-btn club-btn-primary">View Details</a>
+                                <button class="club-btn club-btn-outline club-btn-reminder">
+                                    <i class="far fa-bell"></i> Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tournament 2 -->
+                        <div class="club-tournament-card">
+                            <div class="club-tournament-header">
+                                <div class="club-tournament-title">Champions T20 Cup</div>
+                                <div class="club-tournament-status club-tournament-upcoming">Upcoming</div>
+                            </div>
+                            <div class="club-tournament-details">
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>August 5 - August 15, 2023</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>City Cricket Ground</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Prize Pool: $25,000</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>6 Teams Participating</span>
+                                </div>
+                            </div>
+                            <div class="club-tournament-teams">
+                                <div class="club-tournament-team">
+                                    <div class="club-tournament-team-logo">KCC</div>
+                                    <div class="club-tournament-team-name">Kingdom CC</div>
+                                </div>
+                                <div class="club-tournament-teams-others">
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">RCC</div>
+                                        <div class="club-tournament-team-name">Rhinos CC</div>
+                                    </div>
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">PXI</div>
+                                        <div class="club-tournament-team-name">Panthers XI</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="club-tournament-footer">
+                                <a href="tournament-details.html" class="club-btn club-btn-primary">View Details</a>
+                                <button class="club-btn club-btn-outline club-btn-reminder">
+                                    <i class="far fa-bell"></i> Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tournament 3 -->
+                        <div class="club-tournament-card">
+                            <div class="club-tournament-header">
+                                <div class="club-tournament-title">Inter-Club Championship</div>
+                                <div class="club-tournament-status club-tournament-upcoming">Upcoming</div>
+                            </div>
+                            <div class="club-tournament-details">
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>September 1 - September 10, 2023</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Regional Sports Complex</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Prize Pool: $15,000</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>12 Teams Participating</span>
+                                </div>
+                            </div>
+                            <div class="club-tournament-teams">
+                                <div class="club-tournament-team">
+                                    <div class="club-tournament-team-logo">KCC</div>
+                                    <div class="club-tournament-team-name">Kingdom CC</div>
+                                </div>
+                                <div class="club-tournament-teams-others">
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">TU</div>
+                                        <div class="club-tournament-team-name">Tigers United</div>
+                                    </div>
+                                    <div class="club-tournament-team">
+                                        <div class="club-tournament-team-logo">HCC</div>
+                                        <div class="club-tournament-team-name>Hawks CC</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="club-tournament-footer">
+                                <a href="tournament-details.html" class="club-btn club-btn-primary">View Details</a>
+                                <button class="club-btn club-btn-outline club-btn-reminder">
+                                    <i class="far fa-bell"></i> Set Reminder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ongoing Tournaments -->
+                <div class="club-tournament-tab-content" id="ongoing-tournaments">
+                    <div class="club-tournament-cards">
+                        <!-- Ongoing Tournament 1 -->
+                        <div class="club-tournament-card">
+                            <div class="club-tournament-header">
+                                <div class="club-tournament-title">Regional League Phase 2</div>
+                                <div class="club-tournament-status club-tournament-ongoing">Ongoing</div>
+                            </div>
+                            <div class="club-tournament-details">
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>June 1 - June 30, 2023</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Multiple Venues</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Prize Pool: $30,000</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Our Position: 1st</span>
+                                </div>
+                            </div>
+                            <div class="club-tournament-progress">
+                                <div class="club-tournament-progress-bar">
+                                    <div class="club-tournament-progress-fill" style="width: 60%"></div>
+                                </div>
+                                <div class="club-tournament-progress-text">60% Completed</div>
+                            </div>
+                            <div class="club-tournament-footer">
+                                <a href="tournament-details.html" class="club-btn club-btn-primary">View Live Standings</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Completed Tournaments -->
+                <div class="club-tournament-tab-content" id="completed-tournaments">
+                    <div class="club-tournament-cards">
+                        <!-- Completed Tournament 1 -->
+                        <div class="club-tournament-card">
+                            <div class="club-tournament-header">
+                                <div class="club-tournament-title">Premier Cricket League 2023</div>
+                                <div class="club-tournament-status club-tournament-completed">Champions</div>
+                            </div>
+                            <div class="club-tournament-details">
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>March 1 - May 30, 2023</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>National Stadium</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Prize Pool: $100,000</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Our Result: Champions</span>
+                                </div>
+                            </div>
+                            <div class="club-tournament-highlights">
+                                <h4>Tournament Highlights</h4>
+                                <ul>
+                                    <li>Won 8 out of 10 matches</li>
+                                    <li>Alex Turner: Top scorer (450 runs)</li>
+                                    <li>James Anderson: Best bowler (22 wickets)</li>
+                                    <li>Team of the Tournament: 4 players selected</li>
+                                </ul>
+                            </div>
+                            <div class="club-tournament-footer">
+                                <a href="tournament-details.html" class="club-btn club-btn-primary">View Tournament Recap</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Completed Tournament 2 -->
+                        <div class="club-tournament-card">
+                            <div class="club-tournament-header">
+                                <div class="club-tournament-title">T20 Blast Cup</div>
+                                <div class="club-tournament-status club-tournament-completed">Runners-up</div>
+                            </div>
+                            <div class="club-tournament-details">
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>April 10 - April 25, 2023</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>City Cricket Ground</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Prize Pool: $40,000</span>
+                                </div>
+                                <div class="club-tournament-detail">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Our Result: Runners-up</span>
+                                </div>
+                            </div>
+                            <div class="club-tournament-highlights">
+                                <h4>Tournament Highlights</h4>
+                                <ul>
+                                    <li>Reached finals with 5 consecutive wins</li>
+                                    <li>David Miller: Player of the Tournament</li>
+                                    <li>Fastest century: Steve Smith (45 balls)</li>
+                                </ul>
+                            </div>
+                            <div class="club-tournament-footer">
+                                <a href="tournament-details.html" class="club-btn club-btn-primary">View Tournament Recap</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="club-newsletter-section">
+        <div class="club-section-container">
+            <div class="club-newsletter-content">
+                <div class="club-newsletter-text">
+                    <h2 class="club-newsletter-title">Stay Updated with Kingdom CC</h2>
+                    <p class="club-newsletter-description">Subscribe to our newsletter for the latest articles, tournament updates, and exclusive content.</p>
+                </div>
+                <div class="club-newsletter-form">
+                    <input type="email" class="club-newsletter-input" placeholder="Enter your email address">
+                    <button class="club-btn club-btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="club-footer">
+        <div class="club-footer-container">
+            <div class="club-footer-content">
+                <!-- Logo Section -->
+                <div class="club-footer-logo">
+                    <div class="club-footer-logo-text">KINGDOM</div>
+                    <div class="club-footer-logo-subtext">CRICKET CLUB</div>
+                    <p class="club-footer-tagline">Where champions are made and dreams become reality</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="club-footer-links-section">
+                    <h3 class="club-footer-heading">Quick Links</h3>
+                    <div class="club-footer-links">
+                        <a href="index.html" class="club-footer-link">Home</a>
+                        <a href="about.html" class="club-footer-link">About Us</a>
+                        <a href="articles.html" class="club-footer-link active">Articles</a>
+                        <a href="players.html" class="club-footer-link">Our Players</a>
+                        <a href="gallery.html" class="club-footer-link">Gallery</a>
+                        <a href="contact.html" class="club-footer-link">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Article Categories -->
+                <div class="club-footer-categories">
+                    <h3 class="club-footer-heading">Article Categories</h3>
+                    <div class="club-footer-category-list">
+                        <a href="#" class="club-footer-category">Club News</a>
+                        <a href="#" class="club-footer-category">Match Analysis</a>
+                        <a href="#" class="club-footer-category">Player Interviews</a>
+                        <a href="#" class="club-footer-category">Training Tips</a>
+                        <a href="#" class="club-footer-category">Tournament Updates</a>
+                    </div>
+                </div>
+                
+                <!-- Tournament Links -->
+                <div class="club-footer-tournaments">
+                    <h3 class="club-footer-heading">Tournaments</h3>
+                    <div class="club-footer-tournament-list">
+                        <a href="#" class="club-footer-tournament">Summer Premier League</a>
+                        <a href="#" class="club-footer-tournament">Champions T20 Cup</a>
+                        <a href="#" class="club-footer-tournament">Inter-Club Championship</a>
+                        <a href="#" class="club-footer-tournament">Premier Cricket League</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="club-footer-bottom">
+                <div class="club-footer-links-bottom">
+                    <a href="#" class="club-footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="club-footer-bottom-link">Terms of Service</a>
+                    <a href="#" class="club-footer-bottom-link">Disclaimer</a>
+                </div>
+                <p class="club-copyright">This website is meant only for information purposes. It should not be considered/ claimed as an official site. This website belongs to authorized channel partner.</p>
+            </div>
+        </div>
+        
+        <!-- Cricket Ball Animation -->
+        <div class="club-footer-cricket-ball">
+            <i class="fas fa-baseball-ball"></i>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="articles-script.js"></script>
+</body>
+</html>
