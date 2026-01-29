@@ -165,7 +165,7 @@ body.dark-theme .club-section-subtitle {
 
 /* ===== Navigation Styles ===== */
 .club-main-nav {
-    background-color: darkgreen;
+    background-color: var(--primary-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -3043,14 +3043,7 @@ body.dark-theme .club-best-bowling-stats {
     margin-top: 80px; /* Account for fixed navbar */
 }
 
-.club-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-}
+
 
 .club-about-hero-content {
     position: relative;
@@ -6182,14 +6175,14 @@ body.dark-theme .contact-container {
 /* 1. Gallery Hero Section */
 /* 1. Gallery Hero Section - Fixed */
 .gallery-hero-section {
-    background: linear-gradient(rgba(236, 247, 236, 0.95), rgba(26, 93, 26, 0.85)), 
-                url('images/15.jfif');
+    background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(39, 40, 41, 0.8)), 
+                url('images/10.jfif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
     position: relative;
-    margin-top: 80px;
+    margin-top: 30px;
     text-align: center;
     overflow: hidden;
     height: 250px;
@@ -6760,6 +6753,7 @@ body.dark-theme .shot-stat-label {
     overflow: hidden;
 }
 
+
 .draft-catch-section::before {
     content: '';
     position: absolute;
@@ -6769,7 +6763,9 @@ body.dark-theme .shot-stat-label {
     height: 1px;
     background: linear-gradient(90deg, transparent, #4ECDC4, transparent);
 }
-
+.section-title {
+    color: white;
+}
 .catch-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
