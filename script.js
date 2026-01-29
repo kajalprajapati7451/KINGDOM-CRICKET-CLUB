@@ -51,6 +51,165 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    // ==================== 1. MOBILE NAVIGATION ====================
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.club-nav-hamburger');
+    const navList = document.querySelector('.club-nav-list');
+    const navLinks = document.querySelectorAll('.club-nav-link');
+    const body = document.body;
+    
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-nav-overlay';
+    document.body.appendChild(overlay);
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        if (!hamburger || !navList) return;
+        
+        hamburger.classList.toggle('active');
+        navList.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    }
+    
+    // Close mobile menu
+    function closeMobileMenu() {
+        if (!hamburger || !navList) return;
+        
+        hamburger.classList.remove('active');
+        navList.classList.remove('active');
+        overlay.classList.remove('active');
+        body.classList.remove('menu-open');
+    }
+    
+    // Event listeners
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+    
+    // Close menu when clicking on overlay
+    overlay.addEventListener('click', closeMobileMenu);
+    
+    // Close menu when clicking on links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Check if it's an internal link
+            const href = this.getAttribute('href');
+            if (href && !href.startsWith('http') && href !== '#') {
+                // Close menu
+                closeMobileMenu();
+                
+                // If it's a section link, scroll to it
+                if (href.includes('#')) {
+                    e.preventDefault();
+                    const targetId = href.split('#')[1];
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
+                    }
+                }
+            }
+        });
+    });
+    
+    // Close menu when pressing ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on window resize if switching to desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1023) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navList.classList.contains('active') && 
+            !navList.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+});// ==================== 1. MOBILE NAVIGATION ====================
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.club-nav-hamburger');
+    const navList = document.querySelector('.club-nav-list');
+    const navLinks = document.querySelectorAll('.club-nav-link');
+    
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-nav-overlay';
+    document.body.appendChild(overlay);
+    
+    // Toggle menu
+    function toggleMenu() {
+        if (!hamburger || !navList) return;
+        
+        hamburger.classList.toggle('active');
+        navList.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    }
+    
+    // Close menu
+    function closeMenu() {
+        if (!hamburger || !navList) return;
+        
+        hamburger.classList.remove('active');
+        navList.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+    
+    // Event listeners
+    if (hamburger) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    }
+    
+    overlay.addEventListener('click', closeMenu);
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+    
+    // Close on escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+    
+    // Close on resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1023) {
+            closeMenu();
+        }
+    });
+    
+    // Click outside to close
+    document.addEventListener('click', function(e) {
+        if (navList.classList.contains('active') && 
+            !navList.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            closeMenu();
+        }
+    });
+});
     
     // ==================== 2. HERO SLIDER ====================
     const heroSlides = document.querySelectorAll('.club-slide');
@@ -1292,318 +1451,3 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegex.test(email);
     }
 });
-// Gallery Page JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navigation Tabs
-            const navTabs = document.querySelectorAll('.gallery-nav-tab');
-            const sections = document.querySelectorAll('section[id]');
-            const indicatorDots = document.querySelectorAll('.indicator-dot');
-            
-            // Smooth scroll to section when tab is clicked
-            navTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const sectionId = tab.getAttribute('data-section');
-                    const section = document.getElementById(sectionId);
-                    
-                    // Update active tab
-                    navTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    
-                    // Update indicator dots
-                    indicatorDots.forEach(dot => {
-                        dot.classList.remove('active');
-                        if (dot.getAttribute('data-section') === sectionId) {
-                            dot.classList.add('active');
-                        }
-                    });
-                    
-                    // Smooth scroll to section
-                    section.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                });
-            });
-            
-            // Indicator Dots Click
-            indicatorDots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const sectionId = dot.getAttribute('data-section');
-                    const section = document.getElementById(sectionId);
-                    
-                    // Update active dot
-                    indicatorDots.forEach(d => d.classList.remove('active'));
-                    dot.classList.add('active');
-                    
-                    // Update active tab
-                    navTabs.forEach(tab => {
-                        tab.classList.remove('active');
-                        if (tab.getAttribute('data-section') === sectionId) {
-                            tab.classList.add('active');
-                        }
-                    });
-                    
-                    // Smooth scroll to section
-                    section.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                });
-            });
-            
-            // Video Play Buttons
-            const playButtons = document.querySelectorAll('.shot-play-btn, .catch-play-btn, .bowling-play-btn');
-            const videoModal = document.getElementById('videoModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const closeModal = document.getElementById('closeModal');
-            
-            playButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const card = button.closest('.best-shot-card, .catch-card, .bowling-card');
-                    const videoId = card.getAttribute('data-video');
-                    const title = card.querySelector('.shot-title, .catch-title, .bowling-title').textContent;
-                    const player = card.querySelector('.shot-player, .catch-player, .bowling-player').textContent;
-                    
-                    // Set modal content
-                    modalTitle.textContent = title;
-                    
-                    // Show modal
-                    videoModal.classList.add('active');
-                    
-                    // In a real implementation, you would load the actual video here
-                    // For demo, we're just showing a placeholder
-                    const videoPlayer = document.getElementById('videoPlayer');
-                    videoPlayer.innerHTML = `
-                        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                            <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--secondary-color);"></i>
-                            <div style="text-align: center;">
-                                <h4 style="color: white; margin-bottom: 10px;">${title}</h4>
-                                <p style="color: rgba(255, 255, 255, 0.7);">${player}</p>
-                                <p style="color: rgba(255, 255, 255, 0.5); margin-top: 20px;">Video would play here in real implementation</p>
-                            </div>
-                        </div>
-                    `;
-                });
-            });
-            
-            // Close modal
-            closeModal.addEventListener('click', () => {
-                videoModal.classList.remove('active');
-            });
-            
-            // Close modal when clicking outside
-            videoModal.addEventListener('click', (e) => {
-                if (e.target === videoModal) {
-                    videoModal.classList.remove('active');
-                }
-            });
-            
-            // Scroll to top button
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Update indicator dots on scroll
-            function updateActiveSection() {
-                let currentSection = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        currentSection = section.id;
-                    }
-                });
-                
-                if (currentSection) {
-                    // Update indicator dots
-                    indicatorDots.forEach(dot => {
-                        dot.classList.remove('active');
-                        if (dot.getAttribute('data-section') === currentSection) {
-                            dot.classList.add('active');
-                        }
-                    });
-                    
-                    // Update navigation tabs
-                    navTabs.forEach(tab => {
-                        tab.classList.remove('active');
-                        if (tab.getAttribute('data-section') === currentSection) {
-                            tab.classList.add('active');
-                        }
-                    });
-                }
-            }
-            
-            // Image Gallery Filtering
-            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update active filter button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    // Filter gallery items
-                    galleryItems.forEach(item => {
-                        if (filterValue === 'all') {
-                            item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'scale(1)';
-                            }, 10);
-                        } else {
-                            if (item.getAttribute('data-category') === filterValue) {
-                                item.style.display = 'block';
-                                setTimeout(() => {
-                                    item.style.opacity = '1';
-                                    item.style.transform = 'scale(1)';
-                                }, 10);
-                            } else {
-                                item.style.opacity = '0';
-                                item.style.transform = 'scale(0.8)';
-                                setTimeout(() => {
-                                    item.style.display = 'none';
-                                }, 300);
-                            }
-                        }
-                    });
-                });
-            });
-            
-            // Image Gallery Zoom (using Lightbox)
-            const zoomButtons = document.querySelectorAll('.gallery-zoom-btn');
-            
-            zoomButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const galleryItem = button.closest('.gallery-item');
-                    const imgSrc = galleryItem.querySelector('img').src;
-                    const title = galleryItem.querySelector('.gallery-title').textContent;
-                    
-                    // In a real implementation, you would use Lightbox2 or similar
-                    // For demo, we'll create a simple modal
-                    const lightbox = document.createElement('div');
-                    lightbox.style.position = 'fixed';
-                    lightbox.style.top = '0';
-                    lightbox.style.left = '0';
-                    lightbox.style.width = '100%';
-                    lightbox.style.height = '100%';
-                    lightbox.style.background = 'rgba(0, 0, 0, 0.9)';
-                    lightbox.style.zIndex = '2001';
-                    lightbox.style.display = 'flex';
-                    lightbox.style.alignItems = 'center';
-                    lightbox.style.justifyContent = 'center';
-                    lightbox.style.opacity = '0';
-                    lightbox.style.transition = 'opacity 0.3s ease';
-                    
-                    lightbox.innerHTML = `
-                        <div style="position: relative; max-width: 90%; max-height: 90%;">
-                            <img src="${imgSrc}" alt="${title}" style="max-width: 100%; max-height: 80vh; border-radius: 10px;">
-                            <div style="position: absolute; top: 20px; right: 20px;">
-                                <button class="close-lightbox" style="background: #FF6B6B; border: none; width: 40px; height: 40px; border-radius: 50%; color: white; font-size: 1.2rem; cursor: pointer;">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                            <div style="color: white; text-align: center; margin-top: 15px; font-family: 'Montserrat', sans-serif; font-weight: 600;">
-                                ${title}
-                            </div>
-                        </div>
-                    `;
-                    
-                    document.body.appendChild(lightbox);
-                    
-                    // Fade in
-                    setTimeout(() => {
-                        lightbox.style.opacity = '1';
-                    }, 10);
-                    
-                    // Close lightbox
-                    lightbox.addEventListener('click', (e) => {
-                        if (e.target === lightbox || e.target.closest('.close-lightbox')) {
-                            lightbox.style.opacity = '0';
-                            setTimeout(() => {
-                                document.body.removeChild(lightbox);
-                            }, 300);
-                        }
-                    });
-                });
-            });
-            
-            // Listen for scroll events
-            window.addEventListener('scroll', updateActiveSection);
-            
-            // Card hover effects
-            const cards = document.querySelectorAll('.best-shot-card, .catch-card, .bowling-card, .gallery-item');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    const playBtn = card.querySelector('.shot-play-btn, .catch-play-btn, .bowling-play-btn, .gallery-zoom-btn');
-                    if (playBtn) {
-                        playBtn.style.transform = 'translate(-50%, -50%) scale(1.1)';
-                    }
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    const playBtn = card.querySelector('.shot-play-btn, .catch-play-btn, .bowling-play-btn, .gallery-zoom-btn');
-                    if (playBtn) {
-                        playBtn.style.transform = 'translate(-50%, -50%) scale(1)';
-                    }
-                });
-                
-                // Click entire card to play video
-                card.addEventListener('click', (e) => {
-                    if (!e.target.closest('.shot-play-btn, .catch-play-btn, .bowling-play-btn, .gallery-zoom-btn')) {
-                        const playBtn = card.querySelector('.shot-play-btn, .catch-play-btn, .bowling-play-btn');
-                        if (playBtn) {
-                            playBtn.click();
-                        }
-                    }
-                });
-            });
-            
-            // Mobile Navigation
-            const hamburger = document.querySelector('.club-nav-hamburger');
-            const navList = document.querySelector('.club-nav-list');
-            
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navList.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on links
-            const navLinks = document.querySelectorAll('.club-nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navList.classList.remove('active');
-                });
-            });
-            
-            // Back to Top Button
-            const backToTop = document.querySelector('.club-back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-            
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Initialize with first section active
-            updateActiveSection();
-        });

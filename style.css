@@ -165,8 +165,8 @@ body.dark-theme .club-section-subtitle {
 
 /* ===== Navigation Styles ===== */
 .club-main-nav {
-    background-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: darkgreen;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
@@ -175,40 +175,41 @@ body.dark-theme .club-section-subtitle {
     transition: all var(--transition-speed);
 }
 
-body.dark-theme .club-main-nav {
-    background-color: var(--dark-card);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 .club-nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Logo */
 .club-nav-logo {
     display: flex;
     flex-direction: column;
     font-weight: 800;
+    text-decoration: none;
+    z-index: 1001;
 }
 
 .club-logo-text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    color:white;
+    font-size: 1.5rem;
+    color: white;
     line-height: 1;
+    text-transform: uppercase;
 }
 
 .club-logo-subtext {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    color: white;
+    font-size: 0.8rem;
+    color: #E8F5E9;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
+/* Desktop Navigation */
 .club-nav-menu {
     display: flex;
     align-items: center;
@@ -216,8 +217,10 @@ body.dark-theme .club-main-nav {
 
 .club-nav-list {
     display: flex;
-    gap: 30px;
-    color: black;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .club-nav-link {
@@ -225,8 +228,12 @@ body.dark-theme .club-main-nav {
     font-weight: 600;
     font-size: 1rem;
     position: relative;
-    padding: 5px 0;
-    color: rgb(20, 20, 20);
+    padding: 8px 0;
+    color: white;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    display: block;
+    text-transform: uppercase;
 }
 
 .club-nav-link::after {
@@ -236,7 +243,7 @@ body.dark-theme .club-main-nav {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: green;
+    background-color: #FFD700;
     transition: width var(--transition-speed);
 }
 
@@ -247,26 +254,165 @@ body.dark-theme .club-main-nav {
 
 .club-nav-link:hover,
 .club-nav-link.active {
-    color: white;
+    color: #FFD700;
 }
 
+/* =========== HAMBURGER MENU =========== */
+
+/* Hamburger Button */
 .club-nav-hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    margin-left: 20px;
-    color: rgb(14, 14, 13);
+    background: none;
+    border: none;
+    padding: 8px;
+    z-index: 1001;
 }
 
+/* Hamburger Bars */
 .club-hamburger-bar {
     width: 25px;
     height: 3px;
-    background-color: rgb(254, 252, 252);
+    background-color: white;
     margin: 3px 0;
     border-radius: 3px;
-    transition: all var(--transition-speed);
+    transition: all 0.3s ease;
 }
 
+/* Hamburger Animation */
+.club-nav-hamburger.active .club-hamburger-bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: #FFD700;
+}
+
+.club-nav-hamburger.active .club-hamburger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.club-nav-hamburger.active .club-hamburger-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+    background-color: #FFD700;
+}
+
+/* =========== MOBILE MENU (HALF OPEN FROM LEFT SIDE) =========== */
+@media (max-width: 1023px) {
+    /* Show hamburger on mobile */
+    .club-nav-hamburger {
+        display: flex;
+    }
+    
+    /* Desktop menu hide on mobile - HALF SCREEN WIDTH */
+    .club-nav-list {
+        position: fixed;
+        top: 0;
+        left: -50%; /* Half hidden */
+        width: 50%; /* Half screen width */
+        min-width: 250px; /* Minimum width */
+        max-width: 300px; /* Maximum width */
+        height: 100vh;
+        background-color:darkgreen;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding-top: 80px;
+        margin: 0;
+        transition: left 0.4s ease;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        display: flex !important; /* Force display */
+    }
+    
+    /* Show menu when active - Show half */
+    .club-nav-list.active {
+        left: 0;
+    }
+    
+    /* Menu Items */
+    .club-nav-list li {
+        width: 100%;
+        display: block;
+    }
+    
+    /* Style links in mobile menu */
+    .club-nav-link {
+        display: block;
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        text-align: left;
+        color: rgb(24, 24, 24);
+        width: 100%;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .club-nav-link:hover,
+    .club-nav-link.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #FFD700;
+        border-left-color: #FFD700;
+        padding-left: 30px;
+    }
+    
+    /* Remove underline effect in mobile */
+    .club-nav-link::after {
+        display: none;
+    }
+    
+    /* Overlay for background when menu is open */
+    .mobile-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .club-nav-list {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        flex-direction: row;
+        padding: 0;
+        box-shadow: none;
+        gap: 25px;
+        left: 0 !important; /* Reset left position */
+    }
+    
+    .club-nav-list li {
+        width: auto;
+    }
+    
+    .mobile-nav-overlay {
+        display: none;
+    }
+    
+    .club-nav-hamburger {
+        display: none !important;
+    }
+}
 /* ===== Hero Section Styles ===== */
 .club-hero-section {
     margin-top: 80px;
@@ -1309,7 +1455,7 @@ body.dark-theme .club-player-view-stats {
 
 /* ===== Slider Player View Section Styles ===== */
 .club-slider-player-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background-color: var(--light-card);
 }
 
@@ -1320,21 +1466,63 @@ body.dark-theme .club-slider-player-section {
 .club-slider-player-container {
     position: relative;
     overflow: hidden;
-    padding: 0 60px;
+    padding: 0 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-container {
+        padding: 0 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .club-slider-player-container {
+        padding: 0 60px;
+    }
 }
 
 .club-slider-player-wrapper {
     overflow: hidden;
+    padding: 10px 0;
 }
 
 .club-slider-player-track {
     display: flex;
-    transition: transform 0.5s ease;
-    gap: 30px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 20px;
+    padding: 5px;
 }
 
 .club-slider-player-slide {
-    min-width: calc(25% - 23px);
+    min-width: 100%;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 576px) {
+    .club-slider-player-slide {
+        min-width: calc(50% - 10px);
+    }
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-slide {
+        min-width: calc(33.333% - 14px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .club-slider-player-slide {
+        min-width: calc(25% - 15px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .club-slider-player-slide {
+        min-width: calc(20% - 16px);
+    }
 }
 
 .club-slider-player-card {
@@ -1342,7 +1530,10 @@ body.dark-theme .club-slider-player-section {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 body.dark-theme .club-slider-player-card {
@@ -1351,12 +1542,32 @@ body.dark-theme .club-slider-player-card {
 }
 
 .club-slider-player-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .club-slider-player-image {
-    height: 250px;
+    height: 180px;
     overflow: hidden;
+    position: relative;
+}
+
+@media (min-width: 576px) {
+    .club-slider-player-image {
+        height: 200px;
+    }
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-image {
+        height: 220px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .club-slider-player-image {
+        height: 250px;
+    }
 }
 
 .club-slider-player-image img {
@@ -1367,25 +1578,71 @@ body.dark-theme .club-slider-player-card {
 }
 
 .club-slider-player-card:hover .club-slider-player-image img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .club-slider-player-info {
-    padding: 20px;
+    padding: 15px;
     text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-info {
+        padding: 20px;
+    }
 }
 
 .club-slider-player-name {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     margin-bottom: 5px;
     color: var(--primary-color);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-name {
+        font-size: 1.3rem;
+    }
 }
 
 .club-slider-player-role {
     color: var(--gray-medium);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+@media (min-width: 768px) {
+    .club-slider-player-role {
+        font-size: 0.95rem;
+    }
+}
+
+body.dark-theme .club-slider-player-role {
+    color: var(--gray-light);
+}
+
+.club-slider-player-stats {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-stats {
+        font-size: 0.95rem;
+    }
+}
+
+/* Improved Slider Controls */
 .club-slider-player-controls {
     position: absolute;
     top: 50%;
@@ -1395,52 +1652,119 @@ body.dark-theme .club-slider-player-card {
     display: flex;
     justify-content: space-between;
     pointer-events: none;
+    z-index: 10;
+    padding: 0 5px;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-controls {
+        padding: 0 15px;
+    }
 }
 
 .club-slider-player-prev,
 .club-slider-player-next {
     background-color: var(--primary-color);
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all var(--transition-speed);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-prev,
+    .club-slider-player-next {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
 }
 
 .club-slider-player-prev {
-    transform: translateX(-25px);
+    transform: translateX(-10px);
 }
 
 .club-slider-player-next {
-    transform: translateX(25px);
+    transform: translateX(10px);
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-prev {
+        transform: translateX(-25px);
+    }
+    
+    .club-slider-player-next {
+        transform: translateX(25px);
+    }
 }
 
 .club-slider-player-prev:hover,
 .club-slider-player-next:hover {
     background-color: var(--primary-dark);
+    transform: scale(1.1);
+    opacity: 1;
 }
 
+.club-slider-player-prev:hover {
+    transform: translateX(-10px) scale(1.1);
+}
+
+.club-slider-player-next:hover {
+    transform: translateX(10px) scale(1.1);
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-prev:hover {
+        transform: translateX(-25px) scale(1.1);
+    }
+    
+    .club-slider-player-next:hover {
+        transform: translateX(25px) scale(1.1);
+    }
+}
+
+/* Hide buttons on mobile when not needed */
+.club-slider-player-controls.hide-prev .club-slider-player-prev,
+.club-slider-player-controls.hide-next .club-slider-player-next {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Indicators */
 .club-slider-player-indicators {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
+    gap: 8px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    padding: 0 10px;
 }
 
 .club-slider-player-indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: var(--gray-light);
     cursor: pointer;
-    transition: all var(--transition-speed);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .club-slider-player-indicator {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 body.dark-theme .club-slider-player-indicator {
@@ -1452,6 +1776,69 @@ body.dark-theme .club-slider-player-indicator {
     transform: scale(1.2);
 }
 
+.club-slider-player-indicator:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .club-slider-player-controls {
+        display: flex; /* Always show buttons on touch devices */
+    }
+    
+    .club-slider-player-prev,
+    .club-slider-player-next {
+        opacity: 0.8;
+    }
+    
+    .club-slider-player-card:hover {
+        transform: none;
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 575px) {
+    .club-slider-player-section {
+        padding: 40px 0;
+    }
+    
+    .club-slider-player-container {
+        padding: 0 10px;
+    }
+    
+    .club-slider-player-track {
+        gap: 15px;
+    }
+    
+    .club-slider-player-image {
+        height: 160px;
+    }
+    
+    .club-slider-player-info {
+        padding: 12px;
+    }
+    
+    .club-slider-player-name {
+        font-size: 1rem;
+    }
+    
+    .club-slider-player-prev,
+    .club-slider-player-next {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.club-slider-player-wrapper {
+    overflow-x: hidden;
+}
 /* ===== 2. Performance Options Section Styles ===== */
 .club-performance-options-section {
     padding: 100px 0;
