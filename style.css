@@ -404,9 +404,7 @@ body.dark-theme .club-main-nav {
     background-color: var(--light-card);
 }
 
-body.dark-theme .club-about-preview {
-    background-color: var(--dark-card);
-}
+
 
 .club-about-content {
     display: grid;
