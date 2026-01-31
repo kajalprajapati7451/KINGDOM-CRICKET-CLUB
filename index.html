@@ -57,7 +57,7 @@
                     <h1 class="club-slide-title">2023 Championship Winners</h1>
                     <p class="club-slide-description">Celebrating our victory in the Premier Cricket League tournament</p>
                     <div class="club-slide-buttons">
-                        <a href="tournaments.html" class="club-btn club-btn-primary">View Trophy</a>
+                        <a href="articles.html" class="club-btn club-btn-primary">View Trophy</a>
                         <a href="gallery.html" class="club-btn club-btn-outline">Match Photos</a>
                     </div>
                 </div>
@@ -813,6 +813,21 @@
         <i class="fas fa-baseball-ball"></i>
     </div>
 </footer>
+<!-- Add these script tags before closing body tag -->
+<script>
+    // Fix for hero images if they don't load
+    document.addEventListener('DOMContentLoaded', function() {
+        const heroSlides = document.querySelectorAll('.club-slide');
+        heroSlides.forEach((slide, index) => {
+            const bgImages = [
+                'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/14.jfif")',
+                'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/12.jfif")',
+                'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/8.jfif")'
+            ];
+            slide.style.backgroundImage = bgImages[index] || bgImages[0];
+        });
+    });
+</script>
 
 
    
